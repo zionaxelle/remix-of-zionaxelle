@@ -60,8 +60,21 @@ const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => 
         className="flex items-center justify-center w-full h-full max-w-7xl mx-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Artwork Details - Left Side */}
-        <div className="flex-shrink-0 w-80 pr-12 text-black">
+        {/* Image Container */}
+        <div className="flex-1 flex items-center justify-center">
+          <img
+            src={image}
+            alt={title}
+            className={`max-w-full max-h-[80vh] object-contain cursor-pointer transition-transform duration-300 ${
+              isZoomed ? 'scale-150' : 'scale-100'
+            }`}
+            onClick={handleImageClick}
+            draggable={false}
+          />
+        </div>
+
+        {/* Artwork Details - Right Side */}
+        <div className="flex-shrink-0 w-80 pl-12 text-black">
           <h2 className="text-3xl font-bebas tracking-wide text-artist-red mb-6">{title}</h2>
           <div className="space-y-4 text-lg">
             <div>
@@ -80,19 +93,6 @@ const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => 
           <p className="text-sm text-muted-foreground mt-8">
             Click image to {isZoomed ? 'zoom out' : 'zoom in'}
           </p>
-        </div>
-
-        {/* Image Container */}
-        <div className="flex-1 flex items-center justify-center">
-          <img
-            src={image}
-            alt={title}
-            className={`max-w-full max-h-[80vh] object-contain cursor-pointer transition-transform duration-300 ${
-              isZoomed ? 'scale-150' : 'scale-100'
-            }`}
-            onClick={handleImageClick}
-            draggable={false}
-          />
         </div>
       </div>
     </div>
