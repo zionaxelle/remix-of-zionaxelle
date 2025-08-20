@@ -1,42 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ZION AXELLE Artist Portfolio Design System */
 
 @layer base {
   :root {
+    /* Core palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --foreground: 0 0% 10%;
+    
+    /* Artist brand colors */
+    --artist-red: 0 85% 45%;
+    --artist-red-foreground: 0 0% 100%;
+    
+    /* Adaptive text colors */
+    --text-light: 0 0% 100%;
+    --text-dark: 0 0% 10%;
+    --text-overlay: 0 0% 95%;
+    
+    /* Interface colors */
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 10%;
+    
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    --accent: 0 85% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 0 85% 45%;
+    
+    /* Glass effect */
+    --glass-backdrop: 0 0% 100% / 0.1;
+    --glass-border: 0 0% 100% / 0.2;
+    
+    /* Overlay for menu */
+    --menu-backdrop: 0 0% 0% / 0.3;
+    
+    --radius: 0rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -91,7 +100,6 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 }
 
 @layer base {
@@ -100,6 +108,97 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Logo styling */
+  .logo-zion {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: hsl(var(--artist-red));
+  }
+  
+  .logo-axelle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+  }
+  
+  .logo-light {
+    color: hsl(var(--text-light));
+  }
+  
+  .logo-dark {
+    color: hsl(var(--text-dark));
+  }
+  
+  /* Glass morphism effects */
+  .glass-menu {
+    backdrop-filter: blur(20px);
+    background: hsl(var(--glass-backdrop));
+    border: 1px solid hsl(var(--glass-border));
+  }
+  
+  /* Navigation transitions */
+  .nav-link {
+    @apply transition-all duration-300 hover:text-accent;
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: hsl(var(--accent));
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Image transitions */
+  .artwork-transition {
+    @apply transition-all duration-700 ease-in-out;
+  }
+  
+  /* Masonry grid */
+  .masonry-grid {
+    column-count: 4;
+    column-gap: 1rem;
+    break-inside: avoid;
+  }
+  
+  .masonry-item {
+    @apply mb-4 break-inside-avoid cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+  
+  /* Zoom container */
+  .zoom-container {
+    @apply fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center;
+    backdrop-filter: blur(10px);
+  }
+  
+  @media (max-width: 768px) {
+    .masonry-grid {
+      column-count: 2;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .masonry-grid {
+      column-count: 1;
+    }
   }
 }
