@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from 'react';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import artwork1 from '@/assets/artwork-1.jpg';
 import artwork2 from '@/assets/artwork-2.jpg';
 import artwork3 from '@/assets/artwork-3.jpg';
@@ -24,7 +25,7 @@ const artworks = [
     year: '2024',
     medium: 'Oil on Canvas',
     dimensions: '150 x 100 cm',
-    isDark: false
+    isDark: true
   },
   {
     id: 3,
@@ -60,7 +61,7 @@ const artworks = [
     year: '2024',
     medium: 'Watercolor on Paper',
     dimensions: '80 x 60 cm',
-    isDark: false
+    isDark: true
   }
 ];
 
@@ -78,12 +79,6 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
     setCurrentIndex((prev) => (prev + 1) % artworks.length);
   };
 
-  const prevSlide = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev - 1 + artworks.length) % artworks.length);
-  };
-
   useEffect(() => {
     const timer = setTimeout(() => setIsTransitioning(false), 700);
     return () => clearTimeout(timer);
@@ -98,8 +93,6 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
     const interval = setInterval(nextSlide, 8000);
     return () => clearInterval(interval);
   }, []);
-
-  const currentArtwork = artworks[currentIndex];
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -120,21 +113,13 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
         </div>
       ))}
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-30 transition-all group"
-        aria-label="Previous artwork"
-      >
-        <ChevronLeft size={24} className="text-white group-hover:scale-110 transition-transform" />
-      </button>
-
+      {/* Single Right Arrow Navigation */}
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-30 transition-all group"
+        className="fixed right-8 top-1/2 -translate-y-1/2 z-30 w-16 h-16 bg-black hover:bg-gray-800 transition-colors flex items-center justify-center"
         aria-label="Next artwork"
       >
-        <ChevronRight size={24} className="text-white group-hover:scale-110 transition-transform" />
+        <ChevronRight size={32} className="text-white" />
       </button>
 
       {/* Slide Indicators */}
@@ -156,13 +141,6 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-
-      {/* Artwork Info - Hidden on mobile for clean look */}
-      <div className="absolute bottom-6 right-6 z-30 text-right text-white hidden md:block">
-        <h2 className="text-xl font-medium">{currentArtwork.title}</h2>
-        <p className="text-sm opacity-90">{currentArtwork.year} • {currentArtwork.medium}</p>
-        <p className="text-xs opacity-75">{currentArtwork.dimensions}</p>
       </div>
     </div>
   );

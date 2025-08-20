@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Facebook } from 'lucide-react';
@@ -36,26 +37,59 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
         <span className={`logo-axelle ${logoAxelleClass} ml-1`}>AXELLE</span>
       </Link>
 
-      {/* Menu Toggle */}
+      {/* Horizontal Navigation - Hidden on mobile */}
+      <nav className="fixed top-6 right-6 z-50 hidden md:flex items-center space-x-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className={`nav-link text-sm font-medium ${
+                location.pathname === item.path 
+                  ? 'text-accent' 
+                  : textColorClass
+              } hover:text-accent transition-colors`}
+            >
+              {item.name}
+            </Link>
+          ))}
+          
+          {/* Social Links */}
+          <div className="flex space-x-3 ml-4 pl-4 border-l border-opacity-30" 
+               style={{borderColor: isDarkBackground ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)'}}>
+            {socialLinks.map((social) => {
+              const IconComponent = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.path}
+                  className={`${textColorClass} hover:text-accent transition-colors`}
+                  aria-label={social.name}
+                >
+                  <IconComponent size={18} />
+                </a>
+              );
+            })}
+          </div>
+      </nav>
+
+      {/* Mobile Menu Toggle */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className={`fixed top-6 right-6 z-50 p-2 ${textColorClass} hover:text-accent transition-colors`}
+        className={`fixed top-6 right-6 z-50 p-2 md:hidden ${textColorClass} hover:text-accent transition-colors`}
         aria-label="Toggle menu"
       >
         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Navigation Menu */}
-      <nav className={`fixed inset-0 z-40 transition-all duration-500 ${
+      {/* Mobile Navigation Menu */}
+      <nav className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ${
         isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}>
-        {/* Backdrop */}
         <div 
           className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md"
           onClick={() => setIsMenuOpen(false)}
         />
         
-        {/* Menu Content */}
         <div className="glass-menu absolute top-6 right-6 p-8 rounded-lg min-w-[200px]">
           <ul className="space-y-4">
             {navItems.map((item) => (
@@ -74,7 +108,6 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
               </li>
             ))}
             
-            {/* Social Links */}
             <li className="pt-4 border-t border-glass-border">
               <div className="flex space-x-4">
                 {socialLinks.map((social) => {
