@@ -29,13 +29,13 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
   return (
     <>
       {/* Logo */}
-      <b><Link 
+      <Link 
         to="/" 
         className="fixed top-6 left-6 z-50 text-2xl md:text-3xl font-bebas tracking-tighter"
       >
-        <span className="logo-zion">ZION</span>
+        <span className="logo-zion"><b>ZION</b></span>
         <span className={`logo-axelle ${logoAxelleClass} ml-1`}>AXELLE</span>
-      </Link></b>
+      </Link>
 
       {/* Horizontal Navigation - Hidden on mobile */}
       <nav className="fixed top-6 right-6 z-50 hidden md:flex items-center space-x-6">
