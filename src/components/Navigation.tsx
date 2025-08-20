@@ -31,7 +31,7 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
       {/* Logo */}
       <Link 
         to="/" 
-        className="fixed top-6 left-6 z-50 text-2xl md:text-3xl font-bebas tracking-wider"
+        className="fixed top-6 left-6 z-50 text-2xl md:text-3xl font-bebas tracking-tighter"
       >
         <span className="logo-zion">ZION</span>
         <span className={`logo-axelle ${logoAxelleClass} ml-1`}>AXELLE</span>
