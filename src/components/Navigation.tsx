@@ -28,19 +28,17 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
 
   return (
     <>
-      {/* Logo and Horizontal Navigation */}
-      <div className="fixed top-6 left-6 z-50 flex items-center space-x-8">
-        {/* Logo */}
-        <Link 
-          to="/" 
-          className="text-2xl md:text-3xl font-bebas tracking-wider"
-        >
-          <span className="logo-zion">ZION</span>
-          <span className={`logo-axelle ${logoAxelleClass} ml-1`}>AXELLE</span>
-        </Link>
+      {/* Logo */}
+      <Link 
+        to="/" 
+        className="fixed top-6 left-6 z-50 text-2xl md:text-3xl font-bebas tracking-wider"
+      >
+        <span className="logo-zion">ZION</span>
+        <span className={`logo-axelle ${logoAxelleClass} ml-1`}>AXELLE</span>
+      </Link>
 
-        {/* Horizontal Navigation - Hidden on mobile */}
-        <nav className="hidden md:flex items-center space-x-6">
+      {/* Horizontal Navigation - Hidden on mobile */}
+      <nav className="fixed top-6 right-6 z-50 hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -72,8 +70,7 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
               );
             })}
           </div>
-        </nav>
-      </div>
+      </nav>
 
       {/* Mobile Menu Toggle */}
       <button
