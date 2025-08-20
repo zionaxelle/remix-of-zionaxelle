@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Lightbox from '@/components/Lightbox';
@@ -17,10 +18,9 @@ interface Artwork {
   year: string;
   medium: string;
   dimensions: string;
-  height: number; // For masonry layout
+  height: number;
 }
 
-// Create a collection of 50 artworks with varied heights for masonry effect
 const createArtworkCollection = (): Artwork[] => {
   const baseArtworks = [
     { image: artwork1, title: 'Crimson Expression', year: '2024', medium: 'Acrylic on Canvas', dimensions: '120 x 90 cm' },
@@ -49,8 +49,7 @@ const createArtworkCollection = (): Artwork[] => {
   ];
 
   const years = ['2024', '2023', '2022', '2021'];
-  
-  const heights = [200, 250, 300, 350, 400, 450, 500]; // Varied heights for masonry
+  const heights = [200, 250, 300, 350, 400, 450, 500];
 
   return Array.from({ length: 50 }, (_, index) => {
     const baseArtwork = baseArtworks[index % baseArtworks.length];
@@ -85,24 +84,14 @@ const Works = () => {
     <div className="min-h-screen bg-background">
       <Navigation isDarkBackground={false} />
       
-      <main className="pt-20 px-6 pb-12">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="mb-12 text-center">
-            <h1 className="text-4xl md:text-6xl font-bebas tracking-wider mb-4">
-              <span className="text-artist-red">WORKS</span>
-            </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A collection of contemporary artworks exploring form, color, and emotion through various mediums and techniques.
-            </p>
-          </div>
-
-          {/* Masonry Grid */}
+      <main className="pt-20">
+        {/* Full Screen Masonry Grid */}
+        <div className="w-full px-4">
           <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
             {artworks.map((artwork) => (
               <div
                 key={artwork.id}
-                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white"
+                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer"
                 onClick={() => openLightbox(artwork)}
                 style={{ height: `${artwork.height}px` }}
               >
