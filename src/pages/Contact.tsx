@@ -2,11 +2,8 @@
 import Navigation from '@/components/Navigation';
 import { Mail, Phone, MapPin, Instagram, Facebook } from 'lucide-react';
 import artwork1 from '@/assets/artwork-1.jpg';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
-  const { t } = useLanguage();
-
   return (
     <div className="min-h-screen relative">
       {/* Full Screen Background Image */}
@@ -24,7 +21,7 @@ const Contact = () => {
         <div className="bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl p-8 md:p-12 max-w-2xl w-full shadow-2xl">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bebas tracking-wider mb-4">
-              <span className="text-artist-red">{t('contactTitleFirst')}</span> <span className="text-foreground">{t('contactTitleSecond')}</span>
+              <span className="text-artist-red">GET IN</span> <span className="text-foreground">TOUCH</span>
             </h1>
             <p className="text-muted-foreground">
               For inquiries about artworks, exhibitions, commissions, or collaborations.
@@ -36,7 +33,7 @@ const Contact = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  {t('contactName')} *
+                  Name *
                 </label>
                 <input
                   type="text"
@@ -49,7 +46,7 @@ const Contact = () => {
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  {t('contactEmail')} *
+                  Email *
                 </label>
                 <input
                   type="email"
@@ -63,7 +60,7 @@ const Contact = () => {
             
             <div>
               <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                {t('contactSubject')}
+                Subject
               </label>
               <input
                 type="text"
@@ -75,7 +72,7 @@ const Contact = () => {
             
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                {t('contactMessage')} *
+                Message *
               </label>
               <textarea
                 id="message"
@@ -90,7 +87,7 @@ const Contact = () => {
               type="submit"
               className="w-full bg-artist-red text-white py-3 px-6 rounded-lg font-medium hover:bg-opacity-90 transition-colors"
             >
-              {t('contactSend')}
+              Send Message
             </button>
           </form>
 
@@ -101,7 +98,7 @@ const Contact = () => {
                 <div className="flex items-center space-x-3">
                   <Mail className="text-artist-red" size={18} />
                   <div>
-                    <p className="text-sm font-medium">{t('contactEmail')}</p>
+                    <p className="text-sm font-medium">Email</p>
                     <a href="mailto:hello@zionaxelle.com" className="text-sm text-muted-foreground hover:text-artist-red transition-colors">
                       hello@zionaxelle.com
                     </a>
@@ -111,7 +108,7 @@ const Contact = () => {
                 <div className="flex items-center space-x-3">
                   <Phone className="text-artist-red" size={18} />
                   <div>
-                    <p className="text-sm font-medium">{t('contactPhone')}</p>
+                    <p className="text-sm font-medium">Phone</p>
                     <a href="tel:+1234567890" className="text-sm text-muted-foreground hover:text-artist-red transition-colors">
                       +1 (234) 567-8900
                     </a>
@@ -123,7 +120,7 @@ const Contact = () => {
                 <div className="flex items-center space-x-3">
                   <MapPin className="text-artist-red" size={18} />
                   <div>
-                    <p className="text-sm font-medium">{t('contactStudio')}</p>
+                    <p className="text-sm font-medium">Studio</p>
                     <p className="text-sm text-muted-foreground">Brooklyn, New York</p>
                   </div>
                 </div>
@@ -132,7 +129,7 @@ const Contact = () => {
 
             {/* Social Media */}
             <div className="text-center pt-6 border-t border-border">
-              <p className="text-sm font-medium mb-4">{t('contactSocial')} Zion Axelle</p>
+              <p className="text-sm font-medium mb-4">Follow Zion Axelle</p>
               <div className="flex justify-center space-x-6">
                 <a 
                   href="#" 
@@ -157,7 +154,7 @@ const Contact = () => {
       {/* Footer */}
       <footer className="absolute bottom-0 left-0 right-0 z-20 py-4 text-center">
         <p className="text-xs text-white/80">
-          {t('websiteDeveloped')}{' '}
+          Website Developed by{' '}
           <a 
             href="mailto:geetikagehlot2009@gmail.com" 
             className="hover:text-white transition-colors underline"

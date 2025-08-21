@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Lightbox from '@/components/Lightbox';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 // Import the 6 main artworks
 import artwork1 from '@/assets/artwork-1.jpg';
@@ -67,7 +66,6 @@ const createArtworkCollection = (): Artwork[] => {
 };
 
 const Works = () => {
-  const { t } = useLanguage();
   const [artworks] = useState<Artwork[]>(createArtworkCollection());
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
