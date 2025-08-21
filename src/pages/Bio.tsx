@@ -28,7 +28,7 @@ const Bio = () => {
                 <h1 className="text-5xl font-bebas tracking-wider mb-2">
                   <span className="text-artist-red">ZION</span> <span className="text-foreground">AXELLE</span>
                 </h1>
-                <p className="text-muted-foreground text-lg">Contemporary Artist</p>
+                <p className="text-muted-foreground text-lg">Filipina multidisciplinary artist</p>
               </div>
 
               {/* Artist Statement */}
