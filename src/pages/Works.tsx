@@ -113,6 +113,19 @@ const Works = () => {
         </div>
       </main>
 
+      {/* Footer */}
+      <footer className="py-4 text-center border-t border-border">
+        <p className="text-xs text-muted-foreground">
+          Website Developed by{' '}
+          <a 
+            href="mailto:geetikagehlot2009@gmail.com" 
+            className="hover:text-artist-red transition-colors underline"
+          >
+            Geetika Gehlot
+          </a>
+        </p>
+      </footer>
+
       {/* Lightbox */}
       {selectedArtwork && (
         <Lightbox

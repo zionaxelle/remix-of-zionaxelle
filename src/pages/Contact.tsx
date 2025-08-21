@@ -150,6 +150,19 @@ const Contact = () => {
           </div>
         </div>
       </main>
+      
+      {/* Footer */}
+      <footer className="absolute bottom-0 left-0 right-0 z-20 py-4 text-center">
+        <p className="text-xs text-white/80">
+          Website Developed by{' '}
+          <a 
+            href="mailto:geetikagehlot2009@gmail.com" 
+            className="hover:text-white transition-colors underline"
+          >
+            Geetika Gehlot
+          </a>
+        </p>
+      </footer>
     </div>
   );
 };
