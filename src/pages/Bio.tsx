@@ -28,7 +28,7 @@ const Bio = () => {
                 <h1 className="text-5xl font-bebas tracking-wider mb-2">
                   <span className="text-artist-red">ZION</span> <span className="text-foreground">AXELLE</span>
                 </h1>
-                <p className="text-muted-foreground text-lg">Filipina multidisciplinary artist</p>
+                <p className="text-muted-foreground text-lg">Filipina Multidisciplinary Artist</p>
               </div>
 
               {/* Artist Statement */}
@@ -48,7 +48,7 @@ const Bio = () => {
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
                     Zion Axelle is a contemporary artist whose work explores the intersection of emotion, 
-                    color, and form. Born in 1990, she has been creating art that challenges conventional 
+                    color, and form. Based in Tiohtiake/Montreal, Canada, she has been creating art that challenges conventional 
                     boundaries and invites viewers into a world of abstract expression.
                   </p>
                   <p>
