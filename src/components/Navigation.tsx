@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Facebook } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface NavigationProps {
   isDarkBackground?: boolean;
@@ -10,12 +11,13 @@ interface NavigationProps {
 const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Works', path: '/works' },
-    { name: 'Bio', path: '/bio' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('home'), path: '/' },
+    { name: t('works'), path: '/works' },
+    { name: t('bio'), path: '/bio' },
+    { name: t('contact'), path: '/contact' },
   ];
 
   const socialLinks = [
@@ -53,6 +55,31 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
             </Link>
           ))}
           
+          {/* Language Toggle */}
+          <div className="flex space-x-2 ml-4 pl-4 border-l border-opacity-30"
+               style={{borderColor: isDarkBackground ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)'}}>
+            <button
+              onClick={() => setLanguage('en')}
+              className={`text-xs font-medium px-2 py-1 rounded transition-colors ${
+                language === 'en' 
+                  ? 'text-accent bg-accent/10' 
+                  : textColorClass
+              } hover:text-accent`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLanguage('fr')}
+              className={`text-xs font-medium px-2 py-1 rounded transition-colors ${
+                language === 'fr' 
+                  ? 'text-accent bg-accent/10' 
+                  : textColorClass
+              } hover:text-accent`}
+            >
+              FR
+            </button>
+          </div>
+
           {/* Social Links */}
           <div className="flex space-x-3 ml-4 pl-4 border-l border-opacity-30" 
                style={{borderColor: isDarkBackground ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)'}}>
@@ -109,6 +136,30 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
             ))}
             
             <li className="pt-4 border-t border-glass-border">
+              {/* Language Toggle Mobile */}
+              <div className="flex space-x-2 mb-4">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`text-xs font-medium px-3 py-2 rounded transition-colors ${
+                    language === 'en' 
+                      ? 'text-accent bg-accent/10' 
+                      : 'text-text-overlay'
+                  } hover:text-accent`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLanguage('fr')}
+                  className={`text-xs font-medium px-3 py-2 rounded transition-colors ${
+                    language === 'fr' 
+                      ? 'text-accent bg-accent/10' 
+                      : 'text-text-overlay'
+                  } hover:text-accent`}
+                >
+                  FR
+                </button>
+              </div>
+              
               <div className="flex space-x-4">
                 {socialLinks.map((social) => {
                   const IconComponent = social.icon;
