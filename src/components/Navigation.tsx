@@ -34,7 +34,7 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
         className="fixed top-6 left-6 z-50 text-2xl md:text-3xl font-bebas tracking-tighter"
       >
         <span className="logo-zion"><b>ZION</b></span>
-        <span className={`logo-axelle ${logoAxelleClass} ml-1`}>AXELLE</span>
+        <span className={`logo-axelle ${logoAxelleClass} ml-1`}><b>AXELLE</b></span>
       </Link>
 
       {/* Horizontal Navigation - Hidden on mobile */}
