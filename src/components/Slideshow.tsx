@@ -15,7 +15,7 @@ const artworks = [
     year: '2024',
     medium: 'Acrylic on Canvas',
     dimensions: '120 x 90 cm',
-    isDark: false
+    isDark: true
   },
   {
     id: 2,
