@@ -47,19 +47,10 @@ const Bio = () => {
                 <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">BIOGRAPHY</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Zion Axelle is a contemporary artist whose work explores the intersection of emotion, 
-                    color, and form. Based in Tiohtiake/Montreal, Canada, she has been creating art that challenges conventional 
-                    boundaries and invites viewers into a world of abstract expression.
+                    Zion Axelle is an Ilocana multidisciplinary artist based in Tiojtià:ke (Montréal). She mainly works in mediums of painting, drawing, sculpture and performance. Her creations have been exhibited at Future art*fair, Warren G. Flowers Gallery, and VAV Gallery.
                   </p>
                   <p>
-                    Her artistic journey began with traditional painting techniques, but has evolved to 
-                    incorporate mixed media, digital elements, and experimental approaches to canvas work. 
-                    Each piece reflects a deep understanding of color theory and compositional balance.
-                  </p>
-                  <p>
-                    Working primarily with acrylics, oils, and mixed media, Zion creates layered 
-                    compositions that speak to the complexity of human emotion and the beauty found 
-                    in abstract forms.
+                    As a first-generation immigrant, Axelle's background significantly influences her artistic practice. Her work explores themes of identity, feminism, and the Filipino diaspora. Through color and patterns, she strives to create a space for dialogue and reflection on these critical issues. For Axelle, art is her way of understanding who she is and how she feels, and in this way, it does not lie: it's honest, vulnerable, and proud.
                   </p>
                 </div>
               </div>
