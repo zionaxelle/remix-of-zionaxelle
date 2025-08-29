@@ -1,57 +1,67 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
-import homeArtwork1 from '@/assets/home-artwork-1.jpg';
-import homeArtwork2 from '@/assets/home-artwork-2.jpg';
-import homeArtwork3 from '@/assets/home-artwork-3.jpg';
-import homeArtwork4 from '@/assets/home-artwork-4.jpg';
-import homeArtwork5 from '@/assets/home-artwork-5.jpg';
+import artwork1 from '@/assets/artwork-1.jpg';
+import artwork2 from '@/assets/artwork-2.jpg';
+import artwork3 from '@/assets/artwork-3.jpg';
+import artwork4 from '@/assets/artwork-4.jpg';
+import artwork5 from '@/assets/artwork-5.jpg';
+import artwork6 from '@/assets/artwork-6.jpg';
 
 const artworks = [
   {
     id: 1,
-    image: homeArtwork1,
-    title: 'Artwork 1',
+    image: artwork1,
+    title: 'Crimson Expression',
     year: '2024',
-    medium: 'Mixed Media',
-    dimensions: '',
+    medium: 'Acrylic on Canvas',
+    dimensions: '120 x 90 cm',
     isDark: false
   },
   {
     id: 2,
-    image: homeArtwork2,
-    title: 'Artwork 2',
+    image: artwork2,
+    title: 'Ocean Dreams',
     year: '2024',
-    medium: 'Mixed Media',
-    dimensions: '',
+    medium: 'Oil on Canvas',
+    dimensions: '150 x 100 cm',
     isDark: true
   },
   {
     id: 3,
-    image: homeArtwork3,
-    title: 'Artwork 3',
-    year: '2024',
+    image: artwork3,
+    title: 'Minimalist Harmony',
+    year: '2023',
     medium: 'Mixed Media',
-    dimensions: '',
+    dimensions: '100 x 100 cm',
     isDark: false
   },
   {
     id: 4,
-    image: homeArtwork4,
-    title: 'Artwork 4',
+    image: artwork4,
+    title: 'Midnight Thoughts',
     year: '2024',
-    medium: 'Mixed Media',
-    dimensions: '',
+    medium: 'Acrylic on Canvas',
+    dimensions: '140 x 110 cm',
     isDark: true
   },
   {
     id: 5,
-    image: homeArtwork5,
-    title: 'Artwork 5',
-    year: '2024',
-    medium: 'Mixed Media',
-    dimensions: '',
+    image: artwork5,
+    title: 'Solar Burst',
+    year: '2023',
+    medium: 'Oil on Canvas',
+    dimensions: '130 x 95 cm',
     isDark: false
+  },
+  {
+    id: 6,
+    image: artwork6,
+    title: 'Tranquil Flow',
+    year: '2024',
+    medium: 'Watercolor on Paper',
+    dimensions: '80 x 60 cm',
+    isDark: true
   }
 ];
 
