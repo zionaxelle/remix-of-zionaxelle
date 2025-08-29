@@ -101,7 +101,7 @@ const Works = () => {
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-end">
                   <div className="p-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-sm opacity-90">{artwork.title}</p>
+                    <h3 className="font-medium text-sm">{artwork.title}</h3>
                     <p className="text-xs opacity-90">{artwork.year}</p>
                   </div>
                 </div>
