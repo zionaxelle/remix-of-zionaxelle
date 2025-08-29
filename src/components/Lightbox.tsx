@@ -74,25 +74,21 @@ const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => 
         </div>
 
         {/* Artwork Details - Right Side */}
-        <div className="flex-shrink-0 w-80 pl-12 text-black">
-          <h2 className="text-3xl font-bebas tracking-wide text-artist-red mb-6">{title}</h2>
+        <div className="flex-shrink-0 w-15 pl-3 text-black">
           <div className="space-y-4 text-lg">
             <div>
-              <span className="font-medium">Year:</span>
+              <p className="text-muted-foreground">{title}</p>
+            </div>
+            <div>
               <p className="text-muted-foreground">{details.year}</p>
             </div>
             <div>
-              <span className="font-medium">Medium:</span>
               <p className="text-muted-foreground">{details.medium}</p>
             </div>
             <div>
-              <span className="font-medium">Dimensions:</span>
               <p className="text-muted-foreground">{details.dimensions}</p>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground mt-8">
-            Click image to {isZoomed ? 'zoom out' : 'zoom in'}
-          </p>
         </div>
       </div>
     </div>
