@@ -74,7 +74,7 @@ const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => 
         </div>
 
         {/* Artwork Details - Right Side */}
-        <div className="relative flex-shrink-1 w-28 pl-0 ml-8 top-16 text-[0.69rem] text-black">
+        <div className="relative flex-shrink-1 w-28 pl-0 ml-8 top-66 text-[0.69rem] text-black">
           <div className="space-y-1 text-r">
             <div>
               <p className="text-muted-foreground">{title}</p>
