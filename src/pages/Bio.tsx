@@ -47,10 +47,15 @@ const Bio = () => {
                 <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">BIOGRAPHY</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Zion Axelle is an Ilocana multidisciplinary artist based in Tiojtià:ke (Montréal). She mainly works in mediums of painting, drawing, sculpture and performance. Her creations have been exhibited at Future art*fair, Warren G. Flowers Gallery, and VAV Gallery.
+                    Zion Axelle is an Ilocana multidisciplinary artist based in Tiojtià:ke (Montréal). 
+                    She mainly works in mediums of painting, drawing, sculpture and performance. 
+                    Her creations have been exhibited at Future art fair, Warren G. Flowers Gallery, and VAV Gallery.
                   </p>
                   <p>
-                    As a first-generation immigrant, Axelle's background significantly influences her artistic practice. Her work explores themes of identity, feminism, and the Filipino diaspora. Through color and patterns, she strives to create a space for dialogue and reflection on these critical issues. For Axelle, art is her way of understanding who she is and how she feels, and in this way, it does not lie: it's honest, vulnerable, and proud.
+                    As a first-generation immigrant, Axelle's background significantly influences her artistic practice. 
+                    Her work explores themes of identity, feminism, and the Filipino diaspora. 
+                    Through color and patterns, she strives to create a space for dialogue and reflection on these critical issues. 
+                    For Axelle, art is her way of understanding who she is and how she feels, and in this way, it does not lie: it's honest, vulnerable, and proud.
                   </p>
                 </div>
               </div>
@@ -60,45 +65,12 @@ const Bio = () => {
                 <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">EDUCATION</h2>
                 <div className="space-y-3 text-muted-foreground">
                   <div>
-                    <p className="font-medium">2016 - MFA in Fine Arts</p>
-                    <p className="text-sm">Yale School of Art, New Haven, CT</p>
+                    <p className="font-medium">2027 BFA, Studio Arts</p>
+                    <p className="text-sm">Department of Studio Arts, Concordia University, Montreal, QC</p>
                   </div>
                   <div>
-                    <p className="font-medium">2014 - BFA in Painting</p>
-                    <p className="text-sm">Rhode Island School of Design, Providence, RI</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Selected Works */}
-              <div>
-                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">SELECTED WORKS</h2>
-                <div className="space-y-6 text-muted-foreground">
-                  <div>
-                    <h3 className="font-medium text-foreground">Solo Exhibitions</h3>
-                    <div className="mt-2 space-y-1 text-sm">
-                      <p>2024 - "Emotional Landscapes" - Gallery Modern, New York</p>
-                      <p>2023 - "Abstract Narratives" - Contemporary Space, Los Angeles</p>
-                      <p>2022 - "Color Studies" - Minimal Gallery, Chicago</p>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-foreground">Group Exhibitions</h3>
-                    <div className="mt-2 space-y-1 text-sm">
-                      <p>2024 - "Emerging Voices" - Whitney Biennial, New York</p>
-                      <p>2023 - "Contemporary Abstractions" - MoMA PS1, New York</p>
-                      <p>2023 - "New American Painters" - Saatchi Gallery, London</p>
-                      <p>2022 - "Rising Stars" - Guggenheim Museum, New York</p>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-foreground">Collections</h3>
-                    <div className="mt-2 space-y-1 text-sm">
-                      <p>Museum of Modern Art, New York</p>
-                      <p>Whitney Museum of American Art, New York</p>
-                      <p>Los Angeles County Museum of Art</p>
-                      <p>Private collections worldwide</p>
-                    </div>
+                    <p className="font-medium">2023 DEC, Visual Arts</p>
+                    <p className="text-sm">Department of Visual Arts, Dawson College, Montreal, QC</p>
                   </div>
                 </div>
               </div>
