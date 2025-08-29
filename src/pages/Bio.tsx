@@ -74,6 +74,125 @@ const Bio = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Selected Exhibitions */}
+              <div>
+                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">SELECTED EXHIBITIONS</h2>
+                <div className="space-y-3 text-muted-foreground">
+                  <div>
+                    <p className="font-medium">2025 Sex(ed.) Vernissage and Magazine Showcase</p>
+                    <p className="text-sm">Le Système, Montreal, QC, Group Exhibition</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2025 Youth Forum</p>
+                    <p className="text-sm">Y4Y Quebec, Coeur des sciences (UQAM Pavillon Sherbrooke), Montreal, QC, Group Exhibition</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2024 Impermanence</p>
+                    <p className="text-sm">VAV Gallery, Montreal, QC, Group Exhibition</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2023 Mindset</p>
+                    <p className="text-sm">Warren G. Flowers Art Gallery, Montreal, QC, Group Exhibition</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2023 Liminal</p>
+                    <p className="text-sm">Warren G. Flowers Art Gallery, Montreal, QC, Group Exhibition</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2022 Playground</p>
+                    <p className="text-sm">Future Art*Fair, Montreal, QC, Group Exhibition</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Curatorial & Organizational Projects */}
+              <div>
+                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">CURATORIAL & ORGANIZATIONAL PROJECTS</h2>
+                <div className="space-y-3 text-muted-foreground">
+                  <div>
+                    <p className="font-medium">2025 Youth Day Exhibition w/ BAOBAB</p>
+                    <p className="text-sm">Maison de la Culture, Montreal, QC, Curator & Organizer</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2025 KAGAT Zine Fair</p>
+                    <p className="text-sm">Hosted by Kapwa Center, Le Frigo Vert, Montreal, QC, Lead Organizer</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2024 KAGAT Zine Fair</p>
+                    <p className="text-sm">Hosted by Kapwa Center, SHIFT Space, Concordia University, Montreal, QC, Lead Organizer</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Grants and Awards */}
+              <div>
+                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">GRANTS AND AWARDS</h2>
+                <div className="space-y-3 text-muted-foreground">
+                  <div>
+                    <p className="font-medium">2023 Baillargeon-Marleau Fund Scholarship</p>
+                    <p className="text-sm">Léa-Roback Foundation</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2023 Ted Rogers Community Scholarship</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2022 Visual Arts Achievement Award</p>
+                    <p className="text-sm">Dawson College</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2021 Visual Arts Achievement Award</p>
+                    <p className="text-sm">Dawson College</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Publication and Press */}
+              <div>
+                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">PUBLICATION AND PRESS</h2>
+                <div className="space-y-3 text-muted-foreground">
+                  <div>
+                    <p className="font-medium">Sex(ed.), Issue No. 1</p>
+                    <p className="text-sm">Published by Sex and Self Concordia, 2025</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2025 Lunch and Learn, Panel Speaker</p>
+                    <p className="text-sm">SHIFT Concordia, Montreal, QC</p>
+                    <a 
+                      href="https://www.concordia.ca/cuevents/offices/provost/shift/2025/02/what-we-create-together.html" 
+                      className="text-artist-red hover:underline text-sm block"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      More info
+                    </a>
+                  </div>
+                  <div>
+                    <p className="font-medium">Radyo Kapwa (CKUT 90.3 FM) — Interviewed Artist</p>
+                    <p className="text-sm">Episode 115, October 9, 2024</p>
+                    <a 
+                      href="https://ckut.ca/playlists/shows/20974" 
+                      className="text-artist-red hover:underline text-sm block"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Listen here
+                    </a>
+                  </div>
+                  <div>
+                    <p className="font-medium">Liminal: Visual Arts Graduating Exhibition</p>
+                    <p className="text-sm">Dawson Fine Arts Department, 2023</p>
+                    <a 
+                      href="https://www.dawsoncollege.qc.ca/art-gallery/exhibitions/liminal-visual-arts-graduating-exhibition/" 
+                      className="text-artist-red hover:underline text-sm block"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View exhibition
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
