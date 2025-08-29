@@ -54,15 +54,6 @@ const artworks = [
     dimensions: '130 x 95 cm',
     isDark: false
   },
-  {
-    id: 6,
-    image: artwork6,
-    title: 'Tranquil Flow',
-    year: '2024',
-    medium: 'Watercolor on Paper',
-    dimensions: '80 x 60 cm',
-    isDark: true
-  }
 ];
 
 interface SlideshowProps {
