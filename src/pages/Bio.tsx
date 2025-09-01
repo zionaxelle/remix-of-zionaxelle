@@ -47,19 +47,15 @@ const Bio = () => {
                 <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">BIOGRAPHY</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Zion Axelle is a contemporary artist whose work explores the intersection of emotion, 
-                    color, and form. Based in Tiohtiake/Montreal, Canada, she has been creating art that challenges conventional 
-                    boundaries and invites viewers into a world of abstract expression.
+                    Zion Axelle is an Ilocana multidisciplinary artist based in Tiojtià:ke (Montréal). 
+                    She mainly works in mediums of painting, drawing, sculpture and performance. 
+                    Her creations have been exhibited at Future art fair, Warren G. Flowers Gallery, and VAV Gallery.
                   </p>
                   <p>
-                    Her artistic journey began with traditional painting techniques, but has evolved to 
-                    incorporate mixed media, digital elements, and experimental approaches to canvas work. 
-                    Each piece reflects a deep understanding of color theory and compositional balance.
-                  </p>
-                  <p>
-                    Working primarily with acrylics, oils, and mixed media, Zion creates layered 
-                    compositions that speak to the complexity of human emotion and the beauty found 
-                    in abstract forms.
+                    As a first-generation immigrant, Axelle's background significantly influences her artistic practice. 
+                    Her work explores themes of identity, feminism, and the Filipino diaspora. 
+                    Through color and patterns, she strives to create a space for dialogue and reflection on these critical issues. 
+                    For Axelle, art is her way of understanding who she is and how she feels, and in this way, it does not lie: it's honest, vulnerable, and proud.
                   </p>
                 </div>
               </div>
@@ -69,45 +65,131 @@ const Bio = () => {
                 <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">EDUCATION</h2>
                 <div className="space-y-3 text-muted-foreground">
                   <div>
-                    <p className="font-medium">2016 - MFA in Fine Arts</p>
-                    <p className="text-sm">Yale School of Art, New Haven, CT</p>
+                    <p className="font-medium">2027 BFA, Studio Arts</p>
+                    <p className="text-sm">Department of Studio Arts, Concordia University, Montreal, QC</p>
                   </div>
                   <div>
-                    <p className="font-medium">2014 - BFA in Painting</p>
-                    <p className="text-sm">Rhode Island School of Design, Providence, RI</p>
+                    <p className="font-medium">2023 DEC, Visual Arts</p>
+                    <p className="text-sm">Department of Visual Arts, Dawson College, Montreal, QC</p>
                   </div>
                 </div>
               </div>
 
-              {/* Selected Works */}
+              {/* Selected Exhibitions */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">SELECTED WORKS</h2>
-                <div className="space-y-6 text-muted-foreground">
+                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">SELECTED EXHIBITIONS</h2>
+                <div className="space-y-3 text-muted-foreground">
                   <div>
-                    <h3 className="font-medium text-foreground">Solo Exhibitions</h3>
-                    <div className="mt-2 space-y-1 text-sm">
-                      <p>2024 - "Emotional Landscapes" - Gallery Modern, New York</p>
-                      <p>2023 - "Abstract Narratives" - Contemporary Space, Los Angeles</p>
-                      <p>2022 - "Color Studies" - Minimal Gallery, Chicago</p>
-                    </div>
+                    <p className="font-medium">2025 Sex(ed.) Vernissage and Magazine Showcase</p>
+                    <p className="text-sm">Le Système, Montreal, QC, Group Exhibition</p>
                   </div>
                   <div>
-                    <h3 className="font-medium text-foreground">Group Exhibitions</h3>
-                    <div className="mt-2 space-y-1 text-sm">
-                      <p>2024 - "Emerging Voices" - Whitney Biennial, New York</p>
-                      <p>2023 - "Contemporary Abstractions" - MoMA PS1, New York</p>
-                      <p>2023 - "New American Painters" - Saatchi Gallery, London</p>
-                      <p>2022 - "Rising Stars" - Guggenheim Museum, New York</p>
-                    </div>
+                    <p className="font-medium">2025 Youth Forum</p>
+                    <p className="text-sm">Y4Y Quebec, Coeur des sciences (UQAM Pavillon Sherbrooke), Montreal, QC, Group Exhibition</p>
                   </div>
                   <div>
-                    <h3 className="font-medium text-foreground">Collections</h3>
-                    <div className="mt-2 space-y-1 text-sm">
-                      <p>Museum of Modern Art, New York</p>
-                      <p>Whitney Museum of American Art, New York</p>
-                      <p>Los Angeles County Museum of Art</p>
-                      <p>Private collections worldwide</p>
-                    </div>
+                    <p className="font-medium">2024 Impermanence</p>
+                    <p className="text-sm">VAV Gallery, Montreal, QC, Group Exhibition</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2023 Mindset</p>
+                    <p className="text-sm">Warren G. Flowers Art Gallery, Montreal, QC, Group Exhibition</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2023 Liminal</p>
+                    <p className="text-sm">Warren G. Flowers Art Gallery, Montreal, QC, Group Exhibition</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2022 Playground</p>
+                    <p className="text-sm">Future Art*Fair, Montreal, QC, Group Exhibition</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Curatorial & Organizational Projects */}
+              <div>
+                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">CURATORIAL & ORGANIZATIONAL PROJECTS</h2>
+                <div className="space-y-3 text-muted-foreground">
+                  <div>
+                    <p className="font-medium">2025 Youth Day Exhibition w/ BAOBAB</p>
+                    <p className="text-sm">Maison de la Culture, Montreal, QC, Curator & Organizer</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2025 KAGAT Zine Fair</p>
+                    <p className="text-sm">Hosted by Kapwa Center, Le Frigo Vert, Montreal, QC, Lead Organizer</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2024 KAGAT Zine Fair</p>
+                    <p className="text-sm">Hosted by Kapwa Center, SHIFT Space, Concordia University, Montreal, QC, Lead Organizer</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Grants and Awards */}
+              <div>
+                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">GRANTS AND AWARDS</h2>
+                <div className="space-y-3 text-muted-foreground">
+                  <div>
+                    <p className="font-medium">2023 Baillargeon-Marleau Fund Scholarship</p>
+                    <p className="text-sm">Léa-Roback Foundation</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2023 Ted Rogers Community Scholarship</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2022 Visual Arts Achievement Award</p>
+                    <p className="text-sm">Dawson College</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2021 Visual Arts Achievement Award</p>
+                    <p className="text-sm">Dawson College</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Publication and Press */}
+              <div>
+                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">PUBLICATION AND PRESS</h2>
+                <div className="space-y-3 text-muted-foreground">
+                  <div>
+                    <p className="font-medium">Sex(ed.), Issue No. 1</p>
+                    <p className="text-sm">Published by Sex and Self Concordia, 2025</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">2025 Lunch and Learn, Panel Speaker</p>
+                    <p className="text-sm">SHIFT Concordia, Montreal, QC</p>
+                    <a 
+                      href="https://www.concordia.ca/cuevents/offices/provost/shift/2025/02/what-we-create-together.html" 
+                      className="text-artist-red hover:underline text-sm block"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      More info
+                    </a>
+                  </div>
+                  <div>
+                    <p className="font-medium">Radyo Kapwa (CKUT 90.3 FM) — Interviewed Artist</p>
+                    <p className="text-sm">Episode 115, October 9, 2024</p>
+                    <a 
+                      href="https://ckut.ca/playlists/shows/20974" 
+                      className="text-artist-red hover:underline text-sm block"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Listen here
+                    </a>
+                  </div>
+                  <div>
+                    <p className="font-medium">Liminal: Visual Arts Graduating Exhibition</p>
+                    <p className="text-sm">Dawson Fine Arts Department, 2023</p>
+                    <a 
+                      href="https://www.dawsoncollege.qc.ca/art-gallery/exhibitions/liminal-visual-arts-graduating-exhibition/" 
+                      className="text-artist-red hover:underline text-sm block"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View exhibition
+                    </a>
                   </div>
                 </div>
               </div>
