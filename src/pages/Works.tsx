@@ -90,7 +90,7 @@ const Works = () => {
             {artworks.map((artwork) => (
               <div
                 key={artwork.id}
-                className={`masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-opacity duration-300 ${
+                className={`masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-opacity duration-300 relative ${
                   hoveredArtwork && hoveredArtwork !== artwork.id ? 'opacity-30' : 'opacity-100'
                 }`}
                 onClick={() => openLightbox(artwork)}
