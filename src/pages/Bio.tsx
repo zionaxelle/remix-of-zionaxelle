@@ -120,7 +120,9 @@ const Bio = () => {
 
               {/* Grants and Awards */}
               <div>
+                <h2 className="text-2xl font-bebas tracking-wide mb-4"></h2>
                 <span className="text-artist-red"><b>GRANTS &</b></span> <span className="text-foreground"><b>AWARDS</b></span>
+                </h2>
                 <div className="space-y-3 text-muted-foreground">
                   <div>
                     <p className="font-medium">2023 Baillargeon-Marleau Fund Scholarship</p>
@@ -142,7 +144,9 @@ const Bio = () => {
 
               {/* Publication and Press */}
               <div>
+                <h2 className="text-2xl font-bebas tracking-wide mb-4">
                 <span className="text-artist-red"><b>PUBLICATION</b></span><span className="text-foreground"><b> & PRESS</b></span>
+                </h2>
                 <div className="space-y-3 text-muted-foreground">
                   <div>
                     <p className="font-medium">Sex(ed.), Issue No. 1</p>
