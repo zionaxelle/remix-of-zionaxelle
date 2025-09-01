@@ -91,7 +91,7 @@ const Works = () => {
               <div
                 key={artwork.id}
                 className={`masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-opacity duration-300 relative ${
-                  hoveredArtwork && hoveredArtwork !== artwork.id ? 'opacity-80' : 'opacity-100'
+                  hoveredArtwork && hoveredArtwork !== artwork.id ? 'opacity-90' : 'opacity-100'
                 }`}
                 onClick={() => openLightbox(artwork)}
                 onMouseEnter={() => setHoveredArtwork(artwork.id)}
