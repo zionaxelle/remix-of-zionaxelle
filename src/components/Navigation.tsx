@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Instagram, Facebook } from 'lucide-react';
+import { Menu, X, Instagram } from 'lucide-react';
 
 interface NavigationProps {
   isDarkBackground?: boolean;
@@ -20,7 +20,6 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
 
   const socialLinks = [
     { name: 'Instagram', path: '#', icon: Instagram },
-    { name: 'Facebook', path: '#', icon: Facebook },
   ];
 
   const textColorClass = isDarkBackground ? 'text-text-light' : 'text-text-dark';
