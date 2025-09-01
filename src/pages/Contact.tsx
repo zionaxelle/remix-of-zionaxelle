@@ -110,7 +110,7 @@ const Contact = () => {
                 <div className="flex items-center space-x-3">
                   <MapPin className="text-artist-red" size={18} />
                   <div>
-                    <p className="text-sm font-medium">Studio</p>
+                    <p className="text-sm font-medium">Based in</p>
                     <p className="text-sm text-muted-foreground">Tiojtià;ke (Montréal)</p>
                   </div>
                 </div>
