@@ -120,7 +120,7 @@ const Bio = () => {
 
               {/* Grants and Awards */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide mb-4"></h2>
+                <h2 className="text-2xl font-bebas tracking-wide mb-4">
                 <span className="text-artist-red"><b>GRANTS &</b></span> <span className="text-foreground"><b>AWARDS</b></span>
                 </h2>
                 <div className="space-y-3 text-muted-foreground">
