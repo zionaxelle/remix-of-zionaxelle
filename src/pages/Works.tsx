@@ -104,7 +104,7 @@ const Works = () => {
                 />
                 {/* Dimming overlay - show on non-hovered items when something is hovered */}
                 {hoveredArtwork && hoveredArtwork !== artwork.id && (
-                  <div className="absolute inset-0 bg-black bg-opacity-50 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-black bg-opacity-25 transition-all duration-300" />
                 )}
                 {/* Info overlay - only show on hovered item */}
                 {hoveredArtwork === artwork.id && (
