@@ -104,7 +104,7 @@ const Works = () => {
                 />
                 {/* Black dimming overlay for non-hovered items */}
                 {hoveredArtwork && hoveredArtwork !== artwork.id && (
-                  <div className="absolute inset-0 bg-black bg-opacity-50 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-black bg-opacity-90 transition-all duration-300" />
                 )}
                 <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-end">
                   <div className="p-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
