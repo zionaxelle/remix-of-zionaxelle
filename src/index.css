@@ -122,6 +122,7 @@
   /* Logo styling */
   .logo-zion {
     font-family: 'Bebas Neue', sans-serif;
+    word-spacing: 1.01em ;
     font-weight: 360;
     letter-spacing: 0.03em;
     color: hsl(var(--artist-red));
@@ -129,6 +130,7 @@
   
   .logo-axelle {
     font-family: 'Bebas Neue', sans-serif;
+    word-spacing: 1.01em ;
     font-weight: 360;
     letter-spacing: 0.03em;
   }
