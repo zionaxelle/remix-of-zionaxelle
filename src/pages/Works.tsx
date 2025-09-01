@@ -67,6 +67,7 @@ const Works = () => {
   const [artworks] = useState<Artwork[]>(createArtworkCollection());
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [hoveredArtwork, setHoveredArtwork] = useState<number | null>(null);
 
   const openLightbox = (artwork: Artwork) => {
     setSelectedArtwork(artwork);
@@ -89,8 +90,12 @@ const Works = () => {
             {artworks.map((artwork) => (
               <div
                 key={artwork.id}
-                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer"
+                className={`masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-opacity duration-300 ${
+                  hoveredArtwork && hoveredArtwork !== artwork.id ? 'opacity-30' : 'opacity-100'
+                }`}
                 onClick={() => openLightbox(artwork)}
+                onMouseEnter={() => setHoveredArtwork(artwork.id)}
+                onMouseLeave={() => setHoveredArtwork(null)}
                 style={{ height: `${artwork.height}px` }}
               >
                 <img
