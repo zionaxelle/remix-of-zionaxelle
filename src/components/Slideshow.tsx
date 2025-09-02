@@ -6,7 +6,6 @@ import artwork2 from '@/assets/artwork-2.jpg';
 import artwork3 from '@/assets/artwork-3.jpg';
 import artwork4 from '@/assets/artwork-4.jpg';
 import artwork5 from '@/assets/artwork-5.jpg';
-import artwork6 from '@/assets/artwork-6.jpg';
 
 const artworks = [
   {
@@ -16,7 +15,7 @@ const artworks = [
     year: '2024',
     medium: 'Acrylic on Canvas',
     dimensions: '120 x 90 cm',
-    isDark: false
+    isDark: true
   },
   {
     id: 2,
@@ -54,15 +53,6 @@ const artworks = [
     dimensions: '130 x 95 cm',
     isDark: false
   },
-  {
-    id: 6,
-    image: artwork6,
-    title: 'Tranquil Flow',
-    year: '2024',
-    medium: 'Watercolor on Paper',
-    dimensions: '80 x 60 cm',
-    isDark: true
-  }
 ];
 
 interface SlideshowProps {

@@ -9,7 +9,6 @@ import artwork2 from '@/assets/artwork-2.jpg';
 import artwork3 from '@/assets/artwork-3.jpg';
 import artwork4 from '@/assets/artwork-4.jpg';
 import artwork5 from '@/assets/artwork-5.jpg';
-import artwork6 from '@/assets/artwork-6.jpg';
 
 interface Artwork {
   id: number;
@@ -28,7 +27,6 @@ const createArtworkCollection = (): Artwork[] => {
     { image: artwork3, title: 'Minimalist Harmony', year: '2023', medium: 'Mixed Media', dimensions: '100 x 100 cm' },
     { image: artwork4, title: 'Midnight Thoughts', year: '2024', medium: 'Acrylic on Canvas', dimensions: '140 x 110 cm' },
     { image: artwork5, title: 'Solar Burst', year: '2023', medium: 'Oil on Canvas', dimensions: '130 x 95 cm' },
-    { image: artwork6, title: 'Tranquil Flow', year: '2024', medium: 'Watercolor on Paper', dimensions: '80 x 60 cm' },
   ];
 
   const artworkTitles = [
@@ -103,7 +101,7 @@ const Works = () => {
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-end">
                   <div className="p-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="font-medium text-sm">{artwork.title}</h3>
+                    <p className="text-sm opacity-90">{artwork.title}</p>
                     <p className="text-xs opacity-90">{artwork.year}</p>
                   </div>
                 </div>
