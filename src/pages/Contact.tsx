@@ -1,6 +1,6 @@
 
 import Navigation from '@/components/Navigation';
-import { Mail, Phone, MapPin, Instagram, Facebook } from 'lucide-react';
+import { Mail, MapPin, Instagram } from 'lucide-react';
 import artwork1 from '@/assets/artwork-1.jpg';
 
 const Contact = () => {
@@ -99,18 +99,8 @@ const Contact = () => {
                   <Mail className="text-artist-red" size={18} />
                   <div>
                     <p className="text-sm font-medium">Email</p>
-                    <a href="mailto:hello@zionaxelle.com" className="text-sm text-muted-foreground hover:text-artist-red transition-colors">
-                      hello@zionaxelle.com
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <Phone className="text-artist-red" size={18} />
-                  <div>
-                    <p className="text-sm font-medium">Phone</p>
-                    <a href="tel:+1234567890" className="text-sm text-muted-foreground hover:text-artist-red transition-colors">
-                      +1 (234) 567-8900
+                    <a href="mailto:zionaxellefabro@gmail.com" className="text-sm text-muted-foreground hover:text-artist-red transition-colors">
+                      zionaxellefabro@gmail.com
                     </a>
                   </div>
                 </div>
@@ -120,8 +110,8 @@ const Contact = () => {
                 <div className="flex items-center space-x-3">
                   <MapPin className="text-artist-red" size={18} />
                   <div>
-                    <p className="text-sm font-medium">Studio</p>
-                    <p className="text-sm text-muted-foreground">Brooklyn, New York</p>
+                    <p className="text-sm font-medium">Based in</p>
+                    <p className="text-sm text-muted-foreground">Tiojtià;ke (Montréal)</p>
                   </div>
                 </div>
               </div>
@@ -132,18 +122,11 @@ const Contact = () => {
               <p className="text-sm font-medium mb-4">Follow Zion Axelle</p>
               <div className="flex justify-center space-x-6">
                 <a 
-                  href="#" 
+                  href="https://instagram.com/zionaxelle" 
                   className="flex items-center space-x-2 text-muted-foreground hover:text-artist-red transition-colors"
                 >
                   <Instagram size={20} />
                   <span className="text-sm">@zionaxelle</span>
-                </a>
-                <a 
-                  href="#" 
-                  className="flex items-center space-x-2 text-muted-foreground hover:text-artist-red transition-colors"
-                >
-                  <Facebook size={20} />
-                  <span className="text-sm">Zion Axelle Art</span>
                 </a>
               </div>
             </div>

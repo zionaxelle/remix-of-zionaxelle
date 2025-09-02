@@ -25,26 +25,13 @@ const Bio = () => {
             <div className="space-y-12">
               {/* Artist Name */}
               <div>
-                <h1 className="text-5xl font-bebas tracking-wider mb-2">
-                  <span className="text-artist-red">ZION</span> <span className="text-foreground">AXELLE</span>
+                <h1 className="text-5xl font-bebas tracking-wide mb-2">
+                  <span className="text-artist-red"><b>ZION</b></span><span className="text-foreground ml-2"><b>AXELLE</b></span>
                 </h1>
-                <p className="text-muted-foreground text-lg">Filipina Multidisciplinary Artist</p>
-              </div>
-
-              {/* Artist Statement */}
-              <div>
-                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">ARTIST STATEMENT</h2>
-                <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
-                  "My work is an exploration of the unspoken emotions that color our daily experiences. 
-                  Through abstract forms and bold color choices, I seek to create visual poetry that 
-                  resonates with the viewer's own emotional landscape. Each painting is a conversation 
-                  between the conscious and the subconscious, the known and the felt."
-                </blockquote>
               </div>
 
               {/* Biography */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">BIOGRAPHY</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
                     Zion Axelle is an Ilocana multidisciplinary artist based in Tiojtià:ke (Montréal). 
@@ -62,7 +49,9 @@ const Bio = () => {
 
               {/* CV - Education */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">EDUCATION</h2>
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
+                  <span className="text-artist-red"><b>EDUC</b></span><span className="text-foreground"><b>ATION</b></span>
+                </h2>
                 <div className="space-y-3 text-muted-foreground">
                   <div>
                     <p className="font-medium">2027 BFA, Studio Arts</p>
@@ -77,7 +66,9 @@ const Bio = () => {
 
               {/* Selected Exhibitions */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">SELECTED EXHIBITIONS</h2>
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
+                  <span className="text-artist-red"><b>SELECTED</b></span> <span className="text-foreground"><b>EXHIBITIONS</b></span>
+                </h2>
                 <div className="space-y-3 text-muted-foreground">
                   <div>
                     <p className="font-medium">2025 Sex(ed.) Vernissage and Magazine Showcase</p>
@@ -108,7 +99,9 @@ const Bio = () => {
 
               {/* Curatorial & Organizational Projects */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">CURATORIAL & ORGANIZATIONAL PROJECTS</h2>
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
+                  <span className="text-artist-red"><b>CURATIONAL</b></span> <span className="text-foreground"><b>&</b></span> <span className="text-artist-red"><b>ORGANIZATIONAL</b></span> <span className="text-foreground"><b>PROJECTS</b></span>
+                </h2>
                 <div className="space-y-3 text-muted-foreground">
                   <div>
                     <p className="font-medium">2025 Youth Day Exhibition w/ BAOBAB</p>
@@ -127,7 +120,9 @@ const Bio = () => {
 
               {/* Grants and Awards */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">GRANTS AND AWARDS</h2>
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
+                <span className="text-artist-red"><b>GRANTS &</b></span> <span className="text-foreground"><b>AWARDS</b></span>
+                </h2>
                 <div className="space-y-3 text-muted-foreground">
                   <div>
                     <p className="font-medium">2023 Baillargeon-Marleau Fund Scholarship</p>
@@ -149,7 +144,9 @@ const Bio = () => {
 
               {/* Publication and Press */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide text-artist-red mb-4">PUBLICATION AND PRESS</h2>
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
+                <span className="text-artist-red"><b>PUBLICATION</b></span><span className="text-foreground"><b> & PRESS</b></span>
+                </h2>
                 <div className="space-y-3 text-muted-foreground">
                   <div>
                     <p className="font-medium">Sex(ed.), Issue No. 1</p>

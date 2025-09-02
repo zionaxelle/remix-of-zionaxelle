@@ -67,6 +67,7 @@ const Works = () => {
   const [artworks] = useState<Artwork[]>(createArtworkCollection());
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [hoveredArtwork, setHoveredArtwork] = useState<number | null>(null);
 
   const openLightbox = (artwork: Artwork) => {
     setSelectedArtwork(artwork);
@@ -89,8 +90,10 @@ const Works = () => {
             {artworks.map((artwork) => (
               <div
                 key={artwork.id}
-                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer"
+                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-all duration-300 relative"
                 onClick={() => openLightbox(artwork)}
+                onMouseEnter={() => setHoveredArtwork(artwork.id)}
+                onMouseLeave={() => setHoveredArtwork(null)}
                 style={{ height: `${artwork.height}px` }}
               >
                 <img
@@ -99,12 +102,19 @@ const Works = () => {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-end">
-                  <div className="p-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-sm opacity-90">{artwork.title}</p>
-                    <p className="text-xs opacity-90">{artwork.year}</p>
+                {/* Dimming overlay - show on non-hovered items when something is hovered */}
+                {hoveredArtwork && hoveredArtwork !== artwork.id && (
+                  <div className="absolute inset-0 bg-black bg-opacity-25 transition-all duration-300" />
+                )}
+                {/* Info overlay - only show on hovered item */}
+                {hoveredArtwork === artwork.id && (
+                  <div className="absolute inset-0 bg-black bg-opacity-10 transition-all duration-300 flex items-end">
+                    <div className="p-4 text-white">
+                      <p className="text-sm opacity-90">{artwork.title}</p>
+                      <p className="text-xs opacity-90">{artwork.year}</p>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
