@@ -19,7 +19,7 @@ const Navigation = ({ isDarkBackground = false }: NavigationProps) => {
   ];
 
   const socialLinks = [
-    { name: 'Instagram', path: 'https://instagram.com/zionaxelle', icon: Instagram },
+    { name: 'Instagram', path: 'instagram.com/zionaxelle', icon: Instagram },
   ];
 
   const textColorClass = isDarkBackground ? 'text-text-light' : 'text-text-dark';
