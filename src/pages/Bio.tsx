@@ -26,7 +26,7 @@ const Bio = () => {
               {/* Artist Name */}
               <div>
                 <h1 className="text-5xl font-bebas tracking-wide mb-2">
-                  <span className="text-artist-red"><b>ZION </b></span><span className="text-foreground"><b>AXELLE</b></span>
+                  <span className="text-artist-red"><b>ZION</b></span><span className="text-foreground ml-2"><b>AXELLE</b></span>
                 </h1>
               </div>
 
