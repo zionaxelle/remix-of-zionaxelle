@@ -49,7 +49,7 @@ const Bio = () => {
 
               {/* CV - Education */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide mb-4">
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
                   <span className="text-artist-red"><b>EDUC</b></span><span className="text-foreground"><b>ATION</b></span>
                 </h2>
                 <div className="space-y-3 text-muted-foreground">
@@ -66,7 +66,7 @@ const Bio = () => {
 
               {/* Selected Exhibitions */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide mb-4">
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
                   <span className="text-artist-red"><b>SELECTED</b></span> <span className="text-foreground"><b>EXHIBITIONS</b></span>
                 </h2>
                 <div className="space-y-3 text-muted-foreground">
@@ -99,7 +99,7 @@ const Bio = () => {
 
               {/* Curatorial & Organizational Projects */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide mb-4">
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
                   <span className="text-artist-red"><b>CURATIONAL</b></span> <span className="text-foreground"><b>&</b></span> <span className="text-artist-red"><b>ORGANIZATIONAL</b></span> <span className="text-foreground"><b>PROJECTS</b></span>
                 </h2>
                 <div className="space-y-3 text-muted-foreground">
@@ -120,7 +120,7 @@ const Bio = () => {
 
               {/* Grants and Awards */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide mb-4">
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
                 <span className="text-artist-red"><b>GRANTS &</b></span> <span className="text-foreground"><b>AWARDS</b></span>
                 </h2>
                 <div className="space-y-3 text-muted-foreground">
@@ -144,7 +144,7 @@ const Bio = () => {
 
               {/* Publication and Press */}
               <div>
-                <h2 className="text-2xl font-bebas tracking-wide mb-4">
+                <h2 className="text-2xl font-bebas tracking-wider mb-4">
                 <span className="text-artist-red"><b>PUBLICATION</b></span><span className="text-foreground"><b> & PRESS</b></span>
                 </h2>
                 <div className="space-y-3 text-muted-foreground">
