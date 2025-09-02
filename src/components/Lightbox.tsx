@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 interface LightboxProps {
@@ -16,8 +16,6 @@ interface LightboxProps {
 
 const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => {
   const [isZoomed, setIsZoomed] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const imageContainerRef = useRef<HTMLDivElement>(null);
 
   // Reset zoom when image changes
   useEffect(() => {
@@ -44,23 +42,6 @@ const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => 
     setIsZoomed(!isZoomed);
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isZoomed || !imageContainerRef.current) return;
-    
-    const container = imageContainerRef.current;
-    const rect = container.getBoundingClientRect();
-    
-    // Calculate mouse position relative to container (0 to 1)
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    
-    // Convert to transform values (-25% to 25% for 1.5x zoom)
-    const transformX = (x - 0.5) * -50;
-    const transformY = (y - 0.5) * -50;
-    
-    setMousePosition({ x: transformX, y: transformY });
-  };
-
   if (!isOpen) return null;
 
   return (
@@ -80,20 +61,13 @@ const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => 
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image Container */}
-        <div 
-          ref={imageContainerRef}
-          className="flex-1 flex items-center justify-center"
-          onMouseMove={handleMouseMove}
-        >
+        <div className="flex-1 flex items-center justify-center">
           <img
             src={image}
             alt={title}
             className={`max-w-full max-h-[80vh] object-contain cursor-pointer transition-transform duration-300 ${
               isZoomed ? 'scale-150' : 'scale-100'
             }`}
-            style={isZoomed ? {
-              transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)`
-            } : undefined}
             onClick={handleImageClick}
             draggable={false}
           />
