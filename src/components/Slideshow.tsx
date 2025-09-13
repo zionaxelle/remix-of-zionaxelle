@@ -32,7 +32,7 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
 
   // Reset transition after each slide change
   useEffect(() => {
-    const timer = setTimeout(() => setIsTransitioning(false), 700);
+    const timer = setTimeout(() => setIsTransitioning(false), 500); // faster transition reset
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
@@ -68,7 +68,7 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
       {artworks.map((artwork, index) => (
         <div
           key={artwork.id}
-          className={`absolute inset-0 artwork-transition ${
+          className={`absolute inset-0 transition-all duration-700 ease-in-out ${
             index === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
           }`}
         >
