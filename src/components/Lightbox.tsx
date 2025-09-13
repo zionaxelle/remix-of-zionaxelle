@@ -5,16 +5,11 @@ import { X } from 'lucide-react';
 interface LightboxProps {
   isOpen: boolean;
   image: string;
-  title: string;
-  details: {
-    year: string;
-    medium: string;
-    dimensions: string;
-  };
+  description: string;
   onClose: () => void;
 }
 
-const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => {
+const Lightbox = ({ isOpen, image, description, onClose }: LightboxProps) => {
   const [isZoomed, setIsZoomed] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const imageContainerRef = useRef<HTMLDivElement>(null);
@@ -87,7 +82,7 @@ const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => 
         >
           <img
             src={image}
-            alt={title}
+            alt={description.split('\n')[0]}
             className={`max-w-full max-h-[80vh] object-contain cursor-pointer transition-transform duration-300 ${
               isZoomed ? 'scale-150' : 'scale-100'
             }`}
@@ -102,18 +97,11 @@ const Lightbox = ({ isOpen, image, title, details, onClose }: LightboxProps) => 
         {/* Artwork Details - Right Side */}
         <div className="relative flex-shrink-1 w-28 pl-0 ml-12 text-[0.73rem] text-black">
           <div className="space-y-1 text-r">
-            <div>
-              <p className="text-muted-foreground">{title}</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">{details.year}</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">{details.medium}</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">{details.dimensions}</p>
-            </div>
+            {description.split('\n').map((line, index) => (
+              <div key={index}>
+                <p className="text-muted-foreground">{line}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
