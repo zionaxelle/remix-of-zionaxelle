@@ -102,10 +102,6 @@ const Works = () => {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                {/* Dimming overlay - show on non-hovered items when something is hovered */}
-                {hoveredArtwork && hoveredArtwork !== artwork.id && (
-                  <div className="absolute inset-0 bg-black bg-opacity-25 transition-all duration-300" />
-                )}
                 {/* Info overlay - only show on hovered item */}
                 {hoveredArtwork === artwork.id && (
                   <div className="absolute inset-0 bg-black bg-opacity-10 transition-all duration-300 flex items-end">
