@@ -102,7 +102,7 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
       >
         <ChevronRight
           size={32}
-          className={artworks[currentIndex].isDark ? 'text-black' : 'text-white'}
+          className={artworks[currentIndex].isDark ? 'text-white' : 'text-black'}
         />
       </button>
     </div>
