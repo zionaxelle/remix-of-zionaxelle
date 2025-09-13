@@ -12,7 +12,7 @@ const artworks = [
     id: 1,
     image: homeartwork1,
     title: 'The Revolution Cannot be Contained',
-    isDark: false
+    isDark: true
   },
   {
     id: 2,
