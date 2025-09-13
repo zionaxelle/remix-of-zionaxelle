@@ -3,64 +3,83 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Lightbox from '@/components/Lightbox';
 
-// Import the 6 main artworks
+// Import all 30 artworks
 import artwork1 from '@/assets/artwork-1.jpg';
 import artwork2 from '@/assets/artwork-2.jpg';
 import artwork3 from '@/assets/artwork-3.jpg';
 import artwork4 from '@/assets/artwork-4.jpg';
 import artwork5 from '@/assets/artwork-5.jpg';
+import artwork6 from '@/assets/artwork-6.jpg';
+import artwork7 from '@/assets/artwork-7.jpg';
+import artwork8 from '@/assets/artwork-8.jpg';
+import artwork9 from '@/assets/artwork-9.jpg';
+import artwork10 from '@/assets/artwork-10.jpg';
+import artwork11 from '@/assets/artwork-11.jpg';
+import artwork12 from '@/assets/artwork-12.jpg';
+import artwork13 from '@/assets/artwork-13.jpg';
+import artwork14 from '@/assets/artwork-14.jpg';
+import artwork15 from '@/assets/artwork-15.jpg';
+import artwork16 from '@/assets/artwork-16.jpg';
+import artwork17 from '@/assets/artwork-17.jpg';
+import artwork18 from '@/assets/artwork-18.jpg';
+import artwork19 from '@/assets/artwork-19.jpg';
+import artwork20 from '@/assets/artwork-20.jpg';
+import artwork21 from '@/assets/artwork-21.jpg';
+import artwork22 from '@/assets/artwork-22.jpg';
+import artwork23 from '@/assets/artwork-23.jpg';
+import artwork24 from '@/assets/artwork-24.jpg';
+import artwork25 from '@/assets/artwork-25.jpg';
+import artwork26 from '@/assets/artwork-26.jpg';
+import artwork27 from '@/assets/artwork-27.jpg';
+import artwork28 from '@/assets/artwork-28.jpg';
+import artwork29 from '@/assets/artwork-29.jpg';
+import artwork30 from '@/assets/artwork-30.jpg';
 
 interface Artwork {
   id: number;
   image: string;
-  title: string;
-  year: string;
-  medium: string;
-  dimensions: string;
+  description: string;
   height: number;
 }
 
 const createArtworkCollection = (): Artwork[] => {
-  const baseArtworks = [
-    { image: artwork1, title: 'Crimson Expression', year: '2024', medium: 'Acrylic on Canvas', dimensions: '120 x 90 cm' },
-    { image: artwork2, title: 'Ocean Dreams', year: '2024', medium: 'Oil on Canvas', dimensions: '150 x 100 cm' },
-    { image: artwork3, title: 'Minimalist Harmony', year: '2023', medium: 'Mixed Media', dimensions: '100 x 100 cm' },
-    { image: artwork4, title: 'Midnight Thoughts', year: '2024', medium: 'Acrylic on Canvas', dimensions: '140 x 110 cm' },
-    { image: artwork5, title: 'Solar Burst', year: '2023', medium: 'Oil on Canvas', dimensions: '130 x 95 cm' },
+  const artworks = [
+    { image: artwork1, description: "Self-portrait #3\n2023\nAcrylic on canvas\n9.5 x 8 in each", height: 400 },
+    { image: artwork2, description: "Objectifying Women, Objectifying Bodies, Objectifying Things\n2022\nOil pastel on paper\n24 x 20 in", height: 350 },
+    { image: artwork3, description: "Ilocano Balse\n2024\nOil on canvas\n48 x 36 in", height: 450 },
+    { image: artwork4, description: "Morning Ritual\n2024\n10 min", height: 300 },
+    { image: artwork5, description: "Pakikipagkapwa\n2025\nMetal relief\n30 x 41 in", height: 380 },
+    { image: artwork6, description: "Mamang's Jueteng Book\n2025\nWood sculpture\n9.5 x 14 x 5 in", height: 420 },
+    { image: artwork7, description: "Where the Secrets are Kept\n2024\nOil on canvas\n36 x 48 in", height: 500 },
+    { image: artwork8, description: "Self-Portrait #4\n2023\nMixed media on paper\n19 x 13 in", height: 360 },
+    { image: artwork9, description: "Bodies Transcending\n2022\nAcrylic on canvas\n48 x 36 in", height: 480 },
+    { image: artwork10, description: "Mayari: Diyosa ng Buwan\n2023\nDigital GIF", height: 320 },
+    { image: artwork11, description: "Loving Mother and Daughter\n2024\nPencil, ink and thread on paper\n32 x 43.5 in", height: 440 },
+    { image: artwork12, description: "Ang Bigat ng Dibdib ko\n2025\nOil on canvas\n48 x 48 in", height: 460 },
+    { image: artwork13, description: "Haze in motion\n2025\nOil on canvas\n30 x 24 in", height: 390 },
+    { image: artwork14, description: "Untitled\n2025\nChalk pastel on paper\n39 x 28 in", height: 410 },
+    { image: artwork15, description: "To Bare Oneself\n2024\nOil on canvas\n39 x 30 in", height: 370 },
+    { image: artwork16, description: "The Oldest Flower to Live in My Room\n2023\nOil on canvas\n36 x 24 in", height: 350 },
+    { image: artwork17, description: "Self-portrait #2\n2021\nAcrylic on canvas\n40 x 32 in", height: 400 },
+    { image: artwork18, description: "The Perfect Face\n2023\nOil pastel on paper\n30 x 12 in", height: 520 },
+    { image: artwork19, description: "Sex Overload\n2022\nPlaster and metal coated in spray paint\n25 x 24 x 27 in", height: 330 },
+    { image: artwork20, description: "The Ongoing Tradition of Misrepresentation\n2022\nColor pencil on paper\n16 x 20 in", height: 380 },
+    { image: artwork21, description: "Deconstructing Femininity\n2023\nMetal sculpture\n17 x 17 x 17 in", height: 340 },
+    { image: artwork22, description: "When Softness Binds, a Shared Surrender\n2025\nSculpture\n18 x 12 x 10 in", height: 450 },
+    { image: artwork23, description: "Innocent Giddiness\n2024\nOil on canvas\n36 x 48 in", height: 490 },
+    { image: artwork24, description: "Self-portrait #5\n2024\nOil on canvas\n30 x 20 in", height: 360 },
+    { image: artwork25, description: "metamorphosis, metamorphosis, metamorphosis and metamorphosis\n2024\nMixed media on paper\n28 x 20 in", height: 420 },
+    { image: artwork26, description: "The Sacrament of Woman's Orgasm\n2024\nOil on canvas\n47 x 35 in", height: 470 },
+    { image: artwork27, description: "Plant Study III\n2023\nChalk pastel\n14 x 11 in", height: 300 },
+    { image: artwork28, description: "Mula sa Dagat Hanggang sa Ilog, ang Palestina ay Lalaya\n2025\nChalk pastel on paper\n80 x 59 in", height: 540 },
+    { image: artwork29, description: "The Revolution Cannot be Contained\n2025\nMixed media on canvas\n55 x 38 in", height: 480 },
+    { image: artwork30, description: "\"Raise Your Flag\"\n2022\nScreen print on paper\n9 x 7.5 in", height: 320 }
   ];
 
-  const artworkTitles = [
-    'Abstract Emotions', 'Color Study #3', 'Geometric Harmony', 'Fluid Dynamics', 'Urban Reflections',
-    'Natural Forms', 'Light and Shadow', 'Textural Experiment', 'Bold Strokes', 'Subtle Variations',
-    'Compositional Study', 'Chromatic Tension', 'Organic Flow', 'Structured Chaos', 'Minimal Expression',
-    'Dynamic Balance', 'Atmospheric Mood', 'Gestural Mark', 'Layered Meaning', 'Pure Abstraction',
-    'Emotional Landscape', 'Visual Poetry', 'Artistic Vision', 'Creative Process', 'Expressive Freedom',
-    'Contemporary Voice', 'Personal Journey', 'Artistic Exploration', 'Modern Statement', 'Creative Energy',
-    'Innovative Approach', 'Artistic Truth', 'Visual Narrative', 'Emotional Depth', 'Creative Expression',
-    'Artistic Discovery', 'Visual Language', 'Contemporary Art', 'Modern Expression', 'Creative Process',
-    'Artistic Innovation', 'Visual Communication', 'Contemporary Vision', 'Modern Perspective'
-  ];
-
-  const mediums = [
-    'Acrylic on Canvas', 'Oil on Canvas', 'Mixed Media', 'Watercolor on Paper',
-    'Charcoal on Paper', 'Pastel on Canvas', 'Digital Print', 'Ink on Paper'
-  ];
-
-  const years = ['2024', '2023', '2022', '2021'];
-  const heights = [200, 250, 300, 350, 400, 450, 500];
-
-  return Array.from({ length: 50 }, (_, index) => {
-    const baseArtwork = baseArtworks[index % baseArtworks.length];
-    return {
-      id: index + 1,
-      image: baseArtwork.image,
-      title: index < artworkTitles.length ? artworkTitles[index] : `Untitled ${index + 1}`,
-      year: years[Math.floor(Math.random() * years.length)],
-      medium: mediums[Math.floor(Math.random() * mediums.length)],
-      dimensions: `${80 + Math.floor(Math.random() * 100)} x ${60 + Math.floor(Math.random() * 80)} cm`,
-      height: heights[Math.floor(Math.random() * heights.length)]
-    };
-  });
+  return artworks.map((artwork, index) => ({
+    id: index + 1,
+    ...artwork
+  }));
 };
 
 const Works = () => {
@@ -98,7 +117,7 @@ const Works = () => {
               >
                 <img
                   src={artwork.image}
-                  alt={artwork.title}
+                  alt={artwork.description.split('\n')[0]}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -106,8 +125,7 @@ const Works = () => {
                 {hoveredArtwork === artwork.id && (
                   <div className="absolute inset-0 transition-all duration-300 flex items-end">
                     <div className="p-4 text-white">
-                      <p className="text-sm opacity-90">{artwork.title}</p>
-                      <p className="text-xs opacity-90">{artwork.year}</p>
+                      <p className="text-sm opacity-90 whitespace-pre-line">{artwork.description.split('\n').slice(0, 2).join('\n')}</p>
                     </div>
                   </div>
                 )}
@@ -135,12 +153,7 @@ const Works = () => {
         <Lightbox
           isOpen={isLightboxOpen}
           image={selectedArtwork.image}
-          title={selectedArtwork.title}
-          details={{
-            year: selectedArtwork.year,
-            medium: selectedArtwork.medium,
-            dimensions: selectedArtwork.dimensions
-          }}
+          description={selectedArtwork.description}
           onClose={closeLightbox}
         />
       )}
