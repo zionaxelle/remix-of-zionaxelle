@@ -66,6 +66,10 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
 
   // Clear & reset timer whenever the slide index changes
     return () => clearTimeout(timer);
+    
+  useEffect(() => {
+   const transitionTimer = setTimeout(() => setIsTransitioning(false), 1000); // shorter reset
+   return () => clearTimeout(transitionTimer);
   }, [currentIndex]);
 
   return (
