@@ -104,7 +104,7 @@ const Works = () => {
                 />
                 {/* Info overlay - only show on hovered item */}
                 {hoveredArtwork === artwork.id && (
-                  <div className="absolute inset-0 bg-black bg-opacity-10 transition-all duration-300 flex items-end">
+                  <div className="absolute inset-0 bg-white bg-opacity-10 transition-all duration-300 flex items-end">
                     <div className="p-4 text-white">
                       <p className="text-sm opacity-90">{artwork.title}</p>
                       <p className="text-xs opacity-90">{artwork.year}</p>
