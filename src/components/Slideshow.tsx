@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react'; 
 import { ChevronRight } from 'lucide-react';
 import homeartwork1 from '@/assets/homeartwork-1.jpg';
 import homeartwork2 from '@/assets/homeartwork-2.jpg';
@@ -8,36 +7,11 @@ import homeartwork4 from '@/assets/mayari-diyosa-ng-buwan.mp4';
 import homeartwork5 from '@/assets/homeartwork-5.jpg';
 
 const artworks = [
-  {
-    id: 1,
-    image: homeartwork1,
-    title: 'The Revolution Cannot be Contained',
-    isDark: true
-  },
-  {
-    id: 2,
-    image: homeartwork2,
-    title: 'Objectifying Women, Objectifying Bodies, Objectifying Things',
-    isDark: true
-  },
-  {
-    id: 3,
-    image: homeartwork3,
-    title: 'Mula sa Dagat Hanggang sa Ilog, ang Palestina ay Lalaya',
-    isDark: false
-  },
-  {
-    id: 4,
-    image: homeartwork4,
-    title: 'Mayari: Diyosa ng Buwan',
-    isDark: true
-  },
-  {
-    id: 5,
-    image: homeartwork5,
-    title: 'Self Portrait #3',
-    isDark: false
-  },
+  { id: 1, image: homeartwork1, title: 'The Revolution Cannot be Contained', isDark: true },
+  { id: 2, image: homeartwork2, title: 'Objectifying Women, Objectifying Bodies, Objectifying Things', isDark: true },
+  { id: 3, image: homeartwork3, title: 'Mula sa Dagat Hanggang sa Ilog, ang Palestina ay Lalaya', isDark: false },
+  { id: 4, image: homeartwork4, title: 'Mayari: Diyosa ng Buwan', isDark: true },
+  { id: 5, image: homeartwork5, title: 'Self Portrait #3', isDark: false },
 ];
 
 interface SlideshowProps {
@@ -47,27 +21,46 @@ interface SlideshowProps {
 const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const autoAdvanceTimer = useRef<NodeJS.Timeout | null>(null);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (isTransitioning) return;
+
     setIsTransitioning(true);
     setCurrentIndex((prev) => (prev + 1) % artworks.length);
-  };
+  }, [isTransitioning]);
 
+  // Reset transition after each slide change
   useEffect(() => {
     const timer = setTimeout(() => setIsTransitioning(false), 700);
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
+  // Notify background change
   useEffect(() => {
     onBackgroundChange(artworks[currentIndex].isDark);
   }, [currentIndex, onBackgroundChange]);
 
-  // Auto-advance slideshow
+  // Auto-advance with reset on manual navigation
+  const resetAutoAdvance = useCallback(() => {
+    if (autoAdvanceTimer.current) clearTimeout(autoAdvanceTimer.current);
+    autoAdvanceTimer.current = setTimeout(() => {
+      nextSlide();
+    }, 8000);
+  }, [nextSlide]);
+
   useEffect(() => {
-    const interval = setInterval(nextSlide, 8000);
-    return () => clearInterval(interval);
-  }, []);
+    resetAutoAdvance();
+    return () => {
+      if (autoAdvanceTimer.current) clearTimeout(autoAdvanceTimer.current);
+    };
+  }, [currentIndex, resetAutoAdvance]);
+
+  // Handle click → advance + reset timer
+  const handleNextClick = () => {
+    nextSlide();
+    resetAutoAdvance();
+  };
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -101,13 +94,17 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
 
       {/* Single Right Arrow Navigation */}
       <button
-        onClick={nextSlide}
-        className="fixed right-8 top-1/2 -translate-y-1/2 z-30 w-16 h-16 bg-black hover:bg-gray-800 transition-colors flex items-center justify-center"
+        onClick={handleNextClick}
+        className={`fixed right-8 top-1/2 -translate-y-1/2 z-30 w-16 h-16 transition-colors flex items-center justify-center ${
+          artworks[currentIndex].isDark ? 'bg-black hover:bg-gray-800' : 'bg-white hover:bg-gray-200'
+        }`}
         aria-label="Next artwork"
       >
-        <ChevronRight size={32} className="text-white" />
+        <ChevronRight
+          size={32}
+          className={artworks[currentIndex].isDark ? 'text-white' : 'text-black'}
+        />
       </button>
-
     </div>
   );
 };
