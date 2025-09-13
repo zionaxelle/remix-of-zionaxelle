@@ -60,7 +60,7 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
   
 // Move to next slide (loops forever)
 const nextSlide = () => {
-  setCurrentIndex(prevIndex => (prevIndex + 1) % slides.length);
+  setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
   setIsTransitioning(true);
 };
 
@@ -70,8 +70,8 @@ useEffect(() => {
     nextSlide(); // triggers slide change
   }, 9000);
 
-  return () => clearTimeout(timer); // resets if currentIndex changes
-}, [currentIndex]); // dependency on currentIndex ensures reset
+  return () => clearTimeout(timer); // resets timer on manual click
+}, [currentIndex]); // resets whenever currentIndex changes
 
 // Reset transition state after 1s
 useEffect(() => {
