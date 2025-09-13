@@ -4,7 +4,7 @@ import { ChevronRight } from 'lucide-react';
 import homeartwork1 from '@/assets/homeartwork-1.jpg';
 import homeartwork2 from '@/assets/homeartwork-2.jpg';
 import homeartwork3 from '@/assets/homeartwork-3.jpg';
-import homeartwork4 from '@/assets/homeartwork-4.mp4';
+import homeartwork4 from '@/assets/mayari-diyosa-ng-buwan.mp4';
 import homeartwork5 from '@/assets/homeartwork-5.jpg';
 
 const artworks = [
@@ -71,7 +71,7 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Background Images */}
+      {/* Background Images/Videos */}
       {artworks.map((artwork, index) => (
         <div
           key={artwork.id}
@@ -79,11 +79,22 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
             index === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
           }`}
         >
-          <img
-            src={artwork.image}
-            alt={artwork.title}
-            className="w-full h-full object-cover"
-          />
+          {artwork.image.endsWith('.mp4') ? (
+            <video
+              src={artwork.image}
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : (
+            <img
+              src={artwork.image}
+              alt={artwork.title}
+              className="w-full h-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-black bg-opacity-5" />
         </div>
       ))}
