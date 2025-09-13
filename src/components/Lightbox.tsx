@@ -15,7 +15,9 @@ const Lightbox = ({ isOpen, image, description, onClose }: LightboxProps) => {
 
   // Reset zoom when image changes
   useEffect(() => {
-    if (isOpen) setIsZoomed(false);
+    if (isOpen) {
+      setIsZoomed(false);
+    }
   }, [isOpen, image]);
 
   // Handle keyboard shortcuts
@@ -23,30 +25,34 @@ const Lightbox = ({ isOpen, image, description, onClose }: LightboxProps) => {
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        onClose();
+      }
     };
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  const handleImageClick = () => setIsZoomed(!isZoomed);
+  const handleImageClick = () => {
+    setIsZoomed(!isZoomed);
+  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isZoomed || !imageContainerRef.current) return;
-
+    
     const container = imageContainerRef.current;
     const rect = container.getBoundingClientRect();
-
-    // Mouse position relative to container (0 to 1)
+    
+    // Calculate mouse position relative to container (0 to 1)
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
-
-    // Move zoomed image in opposite direction so you can pan naturally
-    const moveRange = 50; // max translation in px
-    const transformX = (0.5 - x) * moveRange * 2; // multiply by 2 for more movement
-    const transformY = (0.5 - y) * moveRange * 2;
-
+    
+    // Convert to transform values (-50% to 50% for 1.5x zoom)
+    // Increased sensitivity (move more with smaller cursor movement)
+    const transformX = (x - 0.5) * -100; // doubled from -50 → -100
+    const transformY = (y - 0.5) * -100;
+    
     setMousePosition({ x: transformX, y: transformY });
   };
 
@@ -65,7 +71,7 @@ const Lightbox = ({ isOpen, image, description, onClose }: LightboxProps) => {
 
       {/* Content Container */}
       <div 
-        className="flex items-center justify-center w-full h-full max-w-7xl mx-auto relative"
+        className="flex items-center justify-center w-full h-full max-w-7xl mx-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image Container */}
