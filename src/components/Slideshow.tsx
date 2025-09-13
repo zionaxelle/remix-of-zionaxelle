@@ -58,19 +58,22 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
     onBackgroundChange(artworks[currentIndex].isDark);
   }, [currentIndex, onBackgroundChange]);
   
-  // Auto-advance slideshow after 9s of no interaction
-  useEffect(() => {
-    const timer = setTimeout(() => {
-     nextSlide();
-    }, 9000);
+// Auto-advance slideshow 9s after last change
+useEffect(() => {
+  const timer = setTimeout(() => {
+    nextSlide(); // loops forever via nextSlide definition
+  }, 9000); // 9 seconds
 
-  // Clear & reset timer whenever the slide index changes
-    return () => clearTimeout(timer);
-    
-  useEffect(() => {
-   const transitionTimer = setTimeout(() => setIsTransitioning(false), 1000); // shorter reset
-   return () => clearTimeout(transitionTimer);
-  }, [currentIndex]);
+  return () => clearTimeout(timer); // reset timer on manual click
+}, [currentIndex]);
+
+// Reset transitioning state after 1s (or your desired duration)
+useEffect(() => {
+  const transitionTimer = setTimeout(() => setIsTransitioning(false), 1000);
+  return () => clearTimeout(transitionTimer);
+}, [currentIndex]);
+
+
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
