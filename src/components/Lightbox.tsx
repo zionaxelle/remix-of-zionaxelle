@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 
@@ -16,9 +15,7 @@ const Lightbox = ({ isOpen, image, description, onClose }: LightboxProps) => {
 
   // Reset zoom when image changes
   useEffect(() => {
-    if (isOpen) {
-      setIsZoomed(false);
-    }
+    if (isOpen) setIsZoomed(false);
   }, [isOpen, image]);
 
   // Handle keyboard shortcuts
@@ -26,33 +23,30 @@ const Lightbox = ({ isOpen, image, description, onClose }: LightboxProps) => {
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+      if (e.key === 'Escape') onClose();
     };
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  const handleImageClick = () => {
-    setIsZoomed(!isZoomed);
-  };
+  const handleImageClick = () => setIsZoomed(!isZoomed);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isZoomed || !imageContainerRef.current) return;
-    
+
     const container = imageContainerRef.current;
     const rect = container.getBoundingClientRect();
-    
-    // Calculate mouse position relative to container (0 to 1)
+
+    // Mouse position relative to container (0 to 1)
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
-    
-    // Convert to transform values (-25% to 25% for 1.5x zoom)
-    const transformX = (x - 0.5) * -50;
-    const transformY = (y - 0.5) * -50;
-    
+
+    // Move zoomed image in opposite direction so you can pan naturally
+    const moveRange = 50; // max translation in px
+    const transformX = (0.5 - x) * moveRange * 2; // multiply by 2 for more movement
+    const transformY = (0.5 - y) * moveRange * 2;
+
     setMousePosition({ x: transformX, y: transformY });
   };
 
@@ -71,7 +65,7 @@ const Lightbox = ({ isOpen, image, description, onClose }: LightboxProps) => {
 
       {/* Content Container */}
       <div 
-        className="flex items-center justify-center w-full h-full max-w-7xl mx-auto"
+        className="flex items-center justify-center w-full h-full max-w-7xl mx-auto relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image Container */}
@@ -94,8 +88,8 @@ const Lightbox = ({ isOpen, image, description, onClose }: LightboxProps) => {
           />
         </div>
 
-        {/* Artwork Details - Right Side */}
-        <div className="relative flex-shrink-1 w-28 pl-0 ml-12 text-[0.73rem] text-black">
+        {/* Artwork Details - Bottom Right */}
+        <div className="absolute bottom-8 right-8 w-28 text-[0.73rem] text-black">
           <div className="space-y-1 text-r">
             <p className="text-muted-foreground whitespace-pre-line">{description}</p>
           </div>
