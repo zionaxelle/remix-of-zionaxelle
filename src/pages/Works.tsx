@@ -4,17 +4,12 @@ import Navigation from '@/components/Navigation';
 import Lightbox from '@/components/Lightbox';
 
 // Import all 30 artworks
-import homeartwork1 from '@/assets/homeartwork-1.jpg';
-import homeartwork2 from '@/assets/homeartwork-2.jpg';
-import homeartwork3 from '@/assets/homeartwork-3.jpg';
-import homeartwork4 from '@/assets/homeartwork-4.jpg';
-import homeartwork5 from '@/assets/homeartwork-5.jpg';
 import artwork1 from '@/assets/artwork-1.jpg';
 import artwork2 from '@/assets/artwork-2.jpg';
 import artwork3 from '@/assets/artwork-3.jpg';
 import artwork4 from '@/assets/artwork-4.jpg';
 import artwork5 from '@/assets/artwork-5.jpg';
-import artwork6 from '@/assets/artwork-6.jpg';
+import artwork6 from '@/assets/artwork-6.mp4';
 import artwork7 from '@/assets/artwork-7.jpg';
 import artwork8 from '@/assets/artwork-8.jpg';
 import artwork9 from '@/assets/artwork-9.jpg';
