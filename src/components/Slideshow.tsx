@@ -55,7 +55,7 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsTransitioning(false), 700);
+    const timer = setTimeout(() => setIsTransitioning(false), 900);
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
@@ -65,7 +65,7 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
 
   // Auto-advance slideshow
   useEffect(() => {
-    const interval = setInterval(nextSlide, 8000);
+    const interval = setInterval(nextSlide, 10000);
     return () => clearInterval(interval);
   }, []);
 
