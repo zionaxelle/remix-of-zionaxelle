@@ -55,7 +55,7 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsTransitioning(false), 900);
+    const timer = setTimeout(() => setIsTransitioning(false), 11000);
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
