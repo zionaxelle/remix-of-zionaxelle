@@ -4,7 +4,7 @@ import { ChevronRight } from 'lucide-react';
 import homeartwork1 from '@/assets/homeartwork-1.jpg';
 import homeartwork2 from '@/assets/homeartwork-2.jpg';
 import homeartwork3 from '@/assets/homeartwork-3.jpg';
-import homeartwork4 from '@/assets/homeartwork-4.jpg';
+import homeartwork4 from '@/assets/homeartwork-4.mp4';
 import homeartwork5 from '@/assets/homeartwork-5.jpg';
 
 const artworks = [
