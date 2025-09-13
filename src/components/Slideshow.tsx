@@ -1,16 +1,16 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
-import artwork1 from '@/assets/artwork-1.jpg';
-import artwork2 from '@/assets/artwork-2.jpg';
-import artwork3 from '@/assets/artwork-3.jpg';
-import artwork4 from '@/assets/artwork-4.jpg';
-import artwork5 from '@/assets/artwork-5.jpg';
+import homeartwork1 from '@/assets/homeartwork-1.jpg';
+import homeartwork2 from '@/assets/homeartwork-2.jpg';
+import homeartwork3 from '@/assets/homeartwork-3.jpg';
+import homeartwork4 from '@/assets/homeartwork-4.jpg';
+import homeartwork5 from '@/assets/homeartwork-5.jpg';
 
 const artworks = [
   {
     id: 1,
-    image: artwork1,
+    image: homeartwork1,
     title: 'Crimson Expression',
     year: '2024',
     medium: 'Acrylic on Canvas',
@@ -19,7 +19,7 @@ const artworks = [
   },
   {
     id: 2,
-    image: artwork2,
+    image: homeartwork2,
     title: 'Ocean Dreams',
     year: '2024',
     medium: 'Oil on Canvas',
@@ -28,7 +28,7 @@ const artworks = [
   },
   {
     id: 3,
-    image: artwork3,
+    image: homeartwork3,
     title: 'Minimalist Harmony',
     year: '2023',
     medium: 'Mixed Media',
@@ -37,7 +37,7 @@ const artworks = [
   },
   {
     id: 4,
-    image: artwork4,
+    image: homeartwork4,
     title: 'Midnight Thoughts',
     year: '2024',
     medium: 'Acrylic on Canvas',
@@ -46,7 +46,7 @@ const artworks = [
   },
   {
     id: 5,
-    image: artwork5,
+    image: homeartwork5,
     title: 'Solar Burst',
     year: '2023',
     medium: 'Oil on Canvas',
