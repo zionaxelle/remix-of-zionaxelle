@@ -7,7 +7,7 @@ import homeartwork4 from '@/assets/mayari-diyosa-ng-buwan.mp4';
 import homeartwork5 from '@/assets/homeartwork-5.jpg';
 
 const artworks = [
-  { id: 1, image: homeartwork1, title: 'The Revolution Cannot be Contained', isDark: true },
+  { id: 1, image: homeartwork1, title: 'The Revolution Cannot be Contained', isDark: false },
   { id: 2, image: homeartwork2, title: 'Objectifying Women, Objectifying Bodies, Objectifying Things', isDark: true },
   { id: 3, image: homeartwork3, title: 'Mula sa Dagat Hanggang sa Ilog, ang Palestina ay Lalaya', isDark: false },
   { id: 4, image: homeartwork4, title: 'Mayari: Diyosa ng Buwan', isDark: true },
