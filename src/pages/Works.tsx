@@ -4,6 +4,11 @@ import Navigation from '@/components/Navigation';
 import Lightbox from '@/components/Lightbox';
 
 // Import all 30 artworks
+import homeartwork1 from '@/assets/homeartwork-1.jpg';
+import homeartwork2 from '@/assets/homeartwork-2.jpg';
+import homeartwork3 from '@/assets/homeartwork-3.jpg';
+import homeartwork4 from '@/assets/homeartwork-4.jpg';
+import homeartwork5 from '@/assets/homeartwork-5.jpg';
 import artwork1 from '@/assets/artwork-1.jpg';
 import artwork2 from '@/assets/artwork-2.jpg';
 import artwork3 from '@/assets/artwork-3.jpg';
@@ -45,35 +50,35 @@ interface Artwork {
 const createArtworkCollection = (): Artwork[] => {
   const artworks = [
     { image: artwork1, description: "Self-portrait #3\n2023\nAcrylic on canvas\n9.5 x 8 in each", height: 400 },
-    { image: artwork2, description: "Objectifying Women, Objectifying Bodies, Objectifying Things\n2022\nOil pastel on paper\n24 x 20 in", height: 350 },
-    { image: artwork3, description: "Ilocano Balse\n2024\nOil on canvas\n48 x 36 in", height: 450 },
-    { image: artwork4, description: "Morning Ritual\n2024\n10 min", height: 300 },
-    { image: artwork5, description: "Pakikipagkapwa\n2025\nMetal relief\n30 x 41 in", height: 380 },
-    { image: artwork6, description: "Mamang's Jueteng Book\n2025\nWood sculpture\n9.5 x 14 x 5 in", height: 420 },
-    { image: artwork7, description: "Where the Secrets are Kept\n2024\nOil on canvas\n36 x 48 in", height: 500 },
-    { image: artwork8, description: "Self-Portrait #4\n2023\nMixed media on paper\n19 x 13 in", height: 360 },
-    { image: artwork9, description: "Bodies Transcending\n2022\nAcrylic on canvas\n48 x 36 in", height: 480 },
-    { image: artwork10, description: "Mayari: Diyosa ng Buwan\n2023\nDigital GIF", height: 320 },
-    { image: artwork11, description: "Loving Mother and Daughter\n2024\nPencil, ink and thread on paper\n32 x 43.5 in", height: 440 },
-    { image: artwork12, description: "Ang Bigat ng Dibdib ko\n2025\nOil on canvas\n48 x 48 in", height: 460 },
-    { image: artwork13, description: "Haze in motion\n2025\nOil on canvas\n30 x 24 in", height: 390 },
-    { image: artwork14, description: "Untitled\n2025\nChalk pastel on paper\n39 x 28 in", height: 410 },
-    { image: artwork15, description: "To Bare Oneself\n2024\nOil on canvas\n39 x 30 in", height: 370 },
-    { image: artwork16, description: "The Oldest Flower to Live in My Room\n2023\nOil on canvas\n36 x 24 in", height: 350 },
-    { image: artwork17, description: "Self-portrait #2\n2021\nAcrylic on canvas\n40 x 32 in", height: 400 },
-    { image: artwork18, description: "The Perfect Face\n2023\nOil pastel on paper\n30 x 12 in", height: 520 },
-    { image: artwork19, description: "Sex Overload\n2022\nPlaster and metal coated in spray paint\n25 x 24 x 27 in", height: 330 },
-    { image: artwork20, description: "The Ongoing Tradition of Misrepresentation\n2022\nColor pencil on paper\n16 x 20 in", height: 380 },
-    { image: artwork21, description: "Deconstructing Femininity\n2023\nMetal sculpture\n17 x 17 x 17 in", height: 340 },
-    { image: artwork22, description: "When Softness Binds, a Shared Surrender\n2025\nSculpture\n18 x 12 x 10 in", height: 450 },
-    { image: artwork23, description: "Innocent Giddiness\n2024\nOil on canvas\n36 x 48 in", height: 490 },
-    { image: artwork24, description: "Self-portrait #5\n2024\nOil on canvas\n30 x 20 in", height: 360 },
-    { image: artwork25, description: "metamorphosis, metamorphosis, metamorphosis and metamorphosis\n2024\nMixed media on paper\n28 x 20 in", height: 420 },
-    { image: artwork26, description: "The Sacrament of Woman's Orgasm\n2024\nOil on canvas\n47 x 35 in", height: 470 },
-    { image: artwork27, description: "Plant Study III\n2023\nChalk pastel\n14 x 11 in", height: 300 },
-    { image: artwork28, description: "Mula sa Dagat Hanggang sa Ilog, ang Palestina ay Lalaya\n2025\nChalk pastel on paper\n80 x 59 in", height: 540 },
-    { image: artwork29, description: "The Revolution Cannot be Contained\n2025\nMixed media on canvas\n55 x 38 in", height: 480 },
-    { image: artwork30, description: "\"Raise Your Flag\"\n2022\nScreen print on paper\n9 x 7.5 in", height: 320 }
+    { image: artwork5, description: "Objectifying Women, Objectifying Bodies, Objectifying Things\n2022\nOil pastel on paper\n24 x 20 in", height: 350 },
+    { image: artwork9, description: "Ilocano Balse\n2024\nOil on canvas\n48 x 36 in", height: 450 },
+    { image: artwork13, description: "Morning Ritual\n2024\n10 min", height: 300 },
+    { image: artwork17, description: "Pakikipagkapwa\n2025\nMetal relief\n30 x 41 in", height: 380 },
+    { image: artwork21, description: "Mamang's Jueteng Book\n2025\nWood sculpture\n9.5 x 14 x 5 in", height: 420 },
+    { image: artwork25, description: "Where the Secrets are Kept\n2024\nOil on canvas\n36 x 48 in", height: 500 },
+    { image: artwork29, description: "Self-Portrait #4\n2023\nMixed media on paper\n19 x 13 in", height: 360 },
+    { image: artwork2, description: "Bodies Transcending\n2022\nAcrylic on canvas\n48 x 36 in", height: 480 },
+    { image: artwork6, description: "Mayari: Diyosa ng Buwan\n2023\nDigital GIF", height: 320 },
+    { image: artwork10, description: "Loving Mother and Daughter\n2024\nPencil, ink and thread on paper\n32 x 43.5 in", height: 440 },
+    { image: artwork14, description: "Ang Bigat ng Dibdib ko\n2025\nOil on canvas\n48 x 48 in", height: 460 },
+    { image: artwork18, description: "Haze in motion\n2025\nOil on canvas\n30 x 24 in", height: 390 },
+    { image: artwork22, description: "Untitled\n2025\nChalk pastel on paper\n39 x 28 in", height: 410 },
+    { image: artwork26, description: "To Bare Oneself\n2024\nOil on canvas\n39 x 30 in", height: 370 },
+    { image: artwork30, description: "The Oldest Flower to Live in My Room\n2023\nOil on canvas\n36 x 24 in", height: 350 },
+    { image: artwork3, description: "Self-portrait #2\n2021\nAcrylic on canvas\n40 x 32 in", height: 400 },
+    { image: artwork7, description: "The Perfect Face\n2023\nOil pastel on paper\n30 x 12 in", height: 520 },
+    { image: artwork11, description: "Sex Overload\n2022\nPlaster and metal coated in spray paint\n25 x 24 x 27 in", height: 330 },
+    { image: artwork15, description: "The Ongoing Tradition of Misrepresentation\n2022\nColor pencil on paper\n16 x 20 in", height: 380 },
+    { image: artwork19, description: "Deconstructing Femininity\n2023\nMetal sculpture\n17 x 17 x 17 in", height: 340 },
+    { image: artwork23, description: "When Softness Binds, a Shared Surrender\n2025\nSculpture\n18 x 12 x 10 in", height: 450 },
+    { image: artwork27, description: "Innocent Giddiness\n2024\nOil on canvas\n36 x 48 in", height: 490 },
+    { image: artwork4, description: "Self-portrait #5\n2024\nOil on canvas\n30 x 20 in", height: 360 },
+    { image: artwork8, description: "metamorphosis, metamorphosis, metamorphosis and metamorphosis\n2024\nMixed media on paper\n28 x 20 in", height: 420 },
+    { image: artwork12, description: "The Sacrament of Woman's Orgasm\n2024\nOil on canvas\n47 x 35 in", height: 470 },
+    { image: artwork16, description: "Plant Study III\n2023\nChalk pastel\n14 x 11 in", height: 300 },
+    { image: artwork20, description: "Mula sa Dagat Hanggang sa Ilog, ang Palestina ay Lalaya\n2025\nChalk pastel on paper\n80 x 59 in", height: 540 },
+    { image: artwork24, description: "The Revolution Cannot be Contained\n2025\nMixed media on canvas\n55 x 38 in", height: 480 },
+    { image: artwork28, description: "\"Raise Your Flag\"\n2022\nScreen print on paper\n9 x 7.5 in", height: 320 }
   ];
 
   return artworks.map((artwork, index) => ({
