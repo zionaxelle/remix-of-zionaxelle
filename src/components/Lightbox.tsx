@@ -17,11 +17,20 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      setIsZoomed(false);
-      setCurrentImageIndex(initialImageIndex);
-    }
-  }, [isOpen, initialImageIndex]);
+  if (isZoomed) {
+    // Lock scrolling
+    document.body.style.overflow = 'hidden';
+  } else {
+    // Restore scrolling
+    document.body.style.overflow = '';
+  }
+
+  // Cleanup in case component unmounts
+  return () => {
+    document.body.style.overflow = '';
+  };
+}, [isZoomed]);
+
 
   const handleImageClick = (index?: number) => {
     if (index !== undefined) setCurrentImageIndex(index);
@@ -72,7 +81,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       >
         <div 
           ref={imageContainerRef}
-          className="flex flex-col w-full gap-4 items-center justify-center"
+          className="flex flex-col w-full gap-4 items-center justify-center overflow-hidden"
           onMouseMove={handleMouseMove}
         >
           {/* Zoomed Single Image */}
@@ -80,7 +89,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
             <img
   src={images[currentImageIndex]}
   alt={description.split('\n')[0]}
-  className="object-contain max-h-[90vh] max-w-full cursor-zoom-out transition-transform duration-100"
+  className="object-contain max-h-[90vh] max-w-full cursor-zoom-out transition-transform duration-100 "
   style={{ transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
   onClick={() => handleImageClick()}
   draggable={false}
