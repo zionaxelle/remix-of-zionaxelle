@@ -101,9 +101,11 @@ const Works = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [hoveredArtwork, setHoveredArtwork] = useState<number | null>(null);
+  const [initialImageIndex, setInitialImageIndex] = useState(0);
 
-  const openLightbox = (artwork: Artwork) => {
+  const openLightbox = (artwork: Artwork, imageIndex: number = 0) => {
     setSelectedArtwork(artwork);
+    setInitialImageIndex(imageIndex);
     setIsLightboxOpen(true);
   };
 
@@ -141,30 +143,84 @@ const Works = () => {
                 
                 {artwork.layout === 'vertical-2' && (
                   <div className="flex flex-col h-full gap-2 p-2">
-                    <img src={artwork.images[0]} alt="" className="flex-1 w-full object-cover rounded" loading="lazy" />
-                    <img src={artwork.images[1]} alt="" className="flex-1 w-full object-cover rounded" loading="lazy" />
+                    <img 
+                      src={artwork.images[0]} 
+                      alt="" 
+                      className="flex-1 w-full object-cover rounded" 
+                      loading="lazy"
+                      onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
+                    />
+                    <img 
+                      src={artwork.images[1]} 
+                      alt="" 
+                      className="flex-1 w-full object-cover rounded" 
+                      loading="lazy"
+                      onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
+                    />
                   </div>
                 )}
                 
                 {artwork.layout === 'horizontal-2' && (
                   <div className="flex h-full gap-2 p-2">
-                    <img src={artwork.images[0]} alt="" className="flex-1 h-full object-cover rounded" loading="lazy" />
-                    <img src={artwork.images[1]} alt="" className="flex-1 h-full object-cover rounded" loading="lazy" />
+                    <img 
+                      src={artwork.images[0]} 
+                      alt="" 
+                      className="flex-1 h-full object-cover rounded" 
+                      loading="lazy"
+                      onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
+                    />
+                    <img 
+                      src={artwork.images[1]} 
+                      alt="" 
+                      className="flex-1 h-full object-cover rounded" 
+                      loading="lazy"
+                      onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
+                    />
                   </div>
                 )}
                 
                 {artwork.layout === 'horizontal-3' && (
                   <div className="flex h-full gap-2 p-2">
-                    <img src={artwork.images[0]} alt="" className="flex-1 h-full object-cover rounded" loading="lazy" />
-                    <img src={artwork.images[1]} alt="" className="flex-1 h-full object-cover rounded" loading="lazy" />
-                    <img src={artwork.images[2]} alt="" className="flex-1 h-full object-cover rounded" loading="lazy" />
+                    <img 
+                      src={artwork.images[0]} 
+                      alt="" 
+                      className="flex-1 h-full object-cover rounded" 
+                      loading="lazy"
+                      onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
+                    />
+                    <img 
+                      src={artwork.images[1]} 
+                      alt="" 
+                      className="flex-1 h-full object-cover rounded" 
+                      loading="lazy"
+                      onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
+                    />
+                    <img 
+                      src={artwork.images[2]} 
+                      alt="" 
+                      className="flex-1 h-full object-cover rounded" 
+                      loading="lazy"
+                      onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 2); }}
+                    />
                   </div>
                 )}
                 
                 {artwork.layout === 'rect-square' && (
                   <div className="flex flex-col h-full gap-2 p-2">
-                    <img src={artwork.images[0]} alt="" className="w-full h-3/5 object-cover rounded" loading="lazy" />
-                    <img src={artwork.images[1]} alt="" className="w-full h-2/5 object-cover rounded" loading="lazy" />
+                    <img 
+                      src={artwork.images[0]} 
+                      alt="" 
+                      className="w-full h-3/5 object-cover rounded" 
+                      loading="lazy"
+                      onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
+                    />
+                    <img 
+                      src={artwork.images[1]} 
+                      alt="" 
+                      className="w-full h-2/5 object-cover rounded" 
+                      loading="lazy"
+                      onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
+                    />
                   </div>
                 )}
                 
@@ -201,6 +257,8 @@ const Works = () => {
           isOpen={isLightboxOpen}
           images={selectedArtwork.images}
           description={selectedArtwork.description}
+          layout={selectedArtwork.layout}
+          initialImageIndex={initialImageIndex}
           onClose={closeLightbox}
         />
       )}

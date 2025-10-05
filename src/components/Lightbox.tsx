@@ -5,22 +5,24 @@ interface LightboxProps {
   isOpen: boolean;
   images: string[];
   description: string;
+  layout?: 'vertical-2' | 'horizontal-2' | 'horizontal-3' | 'rect-square';
+  initialImageIndex?: number;
   onClose: () => void;
 }
 
-const Lightbox = ({ isOpen, images, description, onClose }: LightboxProps) => {
+const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, onClose }: LightboxProps) => {
   const [isZoomed, setIsZoomed] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(initialImageIndex);
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
-  // Reset zoom and index when lightbox opens
+  // Reset zoom and set initial index when lightbox opens
   useEffect(() => {
     if (isOpen) {
       setIsZoomed(false);
-      setCurrentImageIndex(0);
+      setCurrentImageIndex(initialImageIndex);
     }
-  }, [isOpen]);
+  }, [isOpen, initialImageIndex]);
 
   // Handle keyboard shortcuts
   useEffect(() => {
@@ -74,6 +76,7 @@ const Lightbox = ({ isOpen, images, description, onClose }: LightboxProps) => {
 
   if (!isOpen) return null;
 
+  const shouldShowNavigation = images.length > 1;
   const currentImage = images[currentImageIndex];
 
   return (
@@ -88,7 +91,7 @@ const Lightbox = ({ isOpen, images, description, onClose }: LightboxProps) => {
       </button>
 
       {/* Navigation Arrows - only show if multiple images */}
-      {images.length > 1 && (
+      {shouldShowNavigation && (
         <>
           <button
             onClick={(e) => {
@@ -124,22 +127,104 @@ const Lightbox = ({ isOpen, images, description, onClose }: LightboxProps) => {
           className="flex-1 flex items-center justify-center"
           onMouseMove={handleMouseMove}
         >
-          <img
-            src={currentImage}
-            alt={description.split('\n')[0]}
-            className={`max-w-full max-h-[80vh] object-contain cursor-pointer transition-transform duration-300 ${
-              isZoomed ? 'scale-150' : 'scale-100'
-            }`}
-            style={isZoomed ? {
-              transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)`
-            } : undefined}
-            onClick={handleImageClick}
-            draggable={false}
-          />
+          {/* Show single image view for zooming */}
+          {isZoomed ? (
+            <img
+              src={currentImage}
+              alt={description.split('\n')[0]}
+              className="max-w-full max-h-[80vh] object-contain cursor-pointer transition-transform duration-300 scale-150"
+              style={{
+                transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)`
+              }}
+              onClick={handleImageClick}
+              draggable={false}
+            />
+          ) : (
+            /* Show layout-based view when not zoomed */
+            <>
+              {!layout && (
+                <img
+                  src={currentImage}
+                  alt={description.split('\n')[0]}
+                  className="max-w-full max-h-[80vh] object-contain cursor-pointer transition-transform duration-300"
+                  onClick={handleImageClick}
+                  draggable={false}
+                />
+              )}
+              
+              {layout === 'vertical-2' && (
+                <div className="flex flex-col gap-4 max-h-[80vh]">
+                  {images.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img}
+                      alt={`${description.split('\n')[0]} - ${idx + 1}`}
+                      className={`max-w-full flex-1 object-contain cursor-pointer transition-opacity ${
+                        idx === currentImageIndex ? 'opacity-100' : 'opacity-60'
+                      }`}
+                      onClick={() => { setCurrentImageIndex(idx); setIsZoomed(true); }}
+                      draggable={false}
+                    />
+                  ))}
+                </div>
+              )}
+              
+              {layout === 'horizontal-2' && (
+                <div className="flex gap-4 max-h-[80vh]">
+                  {images.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img}
+                      alt={`${description.split('\n')[0]} - ${idx + 1}`}
+                      className={`max-h-full flex-1 object-contain cursor-pointer transition-opacity ${
+                        idx === currentImageIndex ? 'opacity-100' : 'opacity-60'
+                      }`}
+                      onClick={() => { setCurrentImageIndex(idx); setIsZoomed(true); }}
+                      draggable={false}
+                    />
+                  ))}
+                </div>
+              )}
+              
+              {layout === 'horizontal-3' && (
+                <div className="flex gap-4 max-h-[80vh]">
+                  {images.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img}
+                      alt={`${description.split('\n')[0]} - ${idx + 1}`}
+                      className={`max-h-full flex-1 object-contain cursor-pointer transition-opacity ${
+                        idx === currentImageIndex ? 'opacity-100' : 'opacity-60'
+                      }`}
+                      onClick={() => { setCurrentImageIndex(idx); setIsZoomed(true); }}
+                      draggable={false}
+                    />
+                  ))}
+                </div>
+              )}
+              
+              {layout === 'rect-square' && (
+                <div className="flex flex-col gap-4 max-h-[80vh]">
+                  {images.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img}
+                      alt={`${description.split('\n')[0]} - ${idx + 1}`}
+                      className={`max-w-full ${idx === 0 ? 'h-3/5' : 'h-2/5'} object-contain cursor-pointer transition-opacity ${
+                        idx === currentImageIndex ? 'opacity-100' : 'opacity-60'
+                      }`}
+                      onClick={() => { setCurrentImageIndex(idx); setIsZoomed(true); }}
+                      draggable={false}
+                    />
+                  ))}
+                </div>
+              )}
+            </>
+          )}
         </div>
 
         {/* Image Counter - only show if multiple images */}
-        {images.length > 1 && (
+        {shouldShowNavigation && (
           <div className="absolute bottom-8 left-8 text-sm text-black">
             {currentImageIndex + 1} / {images.length}
           </div>
