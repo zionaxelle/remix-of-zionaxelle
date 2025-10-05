@@ -33,9 +33,17 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
 
 
   const handleImageClick = (index?: number) => {
-    if (index !== undefined) setCurrentImageIndex(index);
-    setIsZoomed(!isZoomed);
-  };
+  if (index !== undefined) setCurrentImageIndex(index);
+
+  if (!isZoomed && imageContainerRef.current) {
+    const container = imageContainerRef.current;
+    // Set mousePosition to center (0 translation initially)
+    setMousePosition({ x: 0, y: 0 });
+  }
+
+  setIsZoomed(!isZoomed);
+};
+
 
 const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   if (!isZoomed || !imageContainerRef.current) return;
