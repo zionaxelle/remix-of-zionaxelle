@@ -9,7 +9,7 @@ const Contact = () => {
       {/* Full Screen Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${artwork1})` }}
+        style={{ backgroundImage: `url(${artwork24})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-30" />
       </div>
