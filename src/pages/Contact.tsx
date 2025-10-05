@@ -1,7 +1,7 @@
 
 import Navigation from '@/components/Navigation';
 import { Mail, MapPin, Instagram } from 'lucide-react';
-import homeartwork1 from '@/assets/artwork-1.jpg';
+import homeartwork1 from '@/assets/homeartwork-1.jpg';
 
 const Contact = () => {
   return (
