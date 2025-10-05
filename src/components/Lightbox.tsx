@@ -32,14 +32,17 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
     if (!isZoomed || !imageContainerRef.current) return;
 
     const rect = imageContainerRef.current.getBoundingClientRect();
-    const sensitivity = 200; // Increase this to make image move faster with mouse
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    const transformX = (x - 0.5) * -100;
-    const transformY = (y - 0.5) * -100;
+    const x = (e.clientX - rect.left) / rect.width; // 0 (left) → 1 (right)
+    const y = (e.clientY - rect.top) / rect.height; // 0 (top) → 1 (bottom)
+
+    const maxMove = 100; // Maximum translation in px at container edges
+    // transform proportional to cursor position
+    const transformX = (x - 0.5) * -maxMove;
+    const transformY = (y - 0.5) * -maxMove;
 
     setMousePosition({ x: transformX, y: transformY });
-  };
+};
+
 
   if (!isOpen) return null;
 
