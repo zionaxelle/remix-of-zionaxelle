@@ -28,20 +28,29 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
     setIsZoomed(!isZoomed);
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isZoomed || !imageContainerRef.current) return;
+const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  if (!isZoomed || !imageContainerRef.current) return;
 
-    const rect = imageContainerRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width; // 0 (left) → 1 (right)
-    const y = (e.clientY - rect.top) / rect.height; // 0 (top) → 1 (bottom)
+  const container = imageContainerRef.current;
+  const img = container.querySelector('img') as HTMLImageElement;
+  if (!img) return;
 
-    const maxMove = 100; // Maximum translation in px at container edges
-    // transform proportional to cursor position
-    const transformX = (x - 0.5) * -maxMove;
-    const transformY = (y - 0.5) * -maxMove;
+  const rect = container.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width; // 0 → 1
+  const y = (e.clientY - rect.top) / rect.height; // 0 → 1
 
-    setMousePosition({ x: transformX, y: transformY });
+  // Calculate extra space due to zoom
+  const zoomScale = 1.5; // Same as your zoom
+  const extraX = (img.clientWidth * zoomScale - rect.width) / 2;
+  const extraY = (img.clientHeight * zoomScale - rect.height) / 2;
+
+  // Transform proportionally but bounded
+  const transformX = Math.max(-extraX, Math.min(extraX, (0.5 - x) * 2 * extraX));
+  const transformY = Math.max(-extraY, Math.min(extraY, (0.5 - y) * 2 * extraY));
+
+  setMousePosition({ x: transformX, y: transformY });
 };
+
 
 
   if (!isOpen) return null;
@@ -69,13 +78,14 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
           {/* Zoomed Single Image */}
           {isZoomed ? (
             <img
-              src={images[currentImageIndex]}
-              alt={description.split('\n')[0]}
-              className="object-contain max-h-[90vh] max-w-full cursor-zoom-out transition-transform duration-300 scale-150"
-              style={{ transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
-              onClick={() => handleImageClick()}
-              draggable={false}
-            />
+  src={images[currentImageIndex]}
+  alt={description.split('\n')[0]}
+  className="object-contain max-h-[90vh] max-w-full cursor-zoom-out transition-transform duration-100"
+  style={{ transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
+  onClick={() => handleImageClick()}
+  draggable={false}
+/>
+
           ) : (
             <>
               {/* Video Layout */}
