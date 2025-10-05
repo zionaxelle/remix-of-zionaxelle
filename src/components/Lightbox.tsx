@@ -43,7 +43,7 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
+    <div className="fixed inset-0 z-50 bg-white flex items-center justify-center p-6">
       {/* Close Button */}
       <button
         onClick={onClose}
