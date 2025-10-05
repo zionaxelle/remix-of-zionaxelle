@@ -5,7 +5,7 @@ interface LightboxProps {
   isOpen: boolean;
   images: string[];
   description: string;
-  layout?: 'vertical-2' | 'horizontal-2' | 'horizontal-3' | 'rect-square';
+  layout?: 'vertical-2' | 'horizontal-2' | 'horizontal-3' | 'rect-square' | 'video';
   initialImageIndex?: number;
   onClose: () => void;
 }
@@ -142,7 +142,17 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
           ) : (
             /* Show layout-based view when not zoomed */
             <>
-              {!layout && (
+              {/* Video Layout */}
+              {layout === 'video' ? (
+                <video
+                  src={currentImage}
+                  controls
+                  autoPlay
+                  className="max-h-[80vh] max-w-full mx-auto object-contain"
+                />
+              ) : (
+
+              !layout && (
                 <img
                   src={currentImage}
                   alt={description.split('\n')[0]}
@@ -150,7 +160,9 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
                   onClick={handleImageClick}
                   draggable={false}
                 />
-              )}
+                )
+                )}
+
               
               {layout === 'vertical-2' && (
                 <div className="flex flex-col gap-4 max-h-[80vh]">
@@ -203,17 +215,6 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
                 </div>
               )}
 
-              {layout !== 'video' ? (
-                <img src={images[currentIndex]} alt="" className="max-h-[80vh] mx-auto object-contain" />
-                  ) : (
-                    <video 
-                      src={images[currentIndex]} 
-                      controls 
-                      autoPlay 
-                      muted={false} 
-                      className="max-h-[80vh] mx-auto object-contain" 
-                    />
-                  )}
 
               
               {layout === 'rect-square' && (
