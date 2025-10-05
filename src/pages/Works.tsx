@@ -54,6 +54,7 @@ interface Artwork {
   description: string;
   height: number;
   layout?: 'vertical-2' | 'horizontal-2' | 'horizontal-3' | 'rect-square';
+  mediaType?: 'image' | 'video';
 }
 
 const createArtworkCollection = (): Artwork[] => {
@@ -67,7 +68,7 @@ const createArtworkCollection = (): Artwork[] => {
     { images: [artwork25], description: "Where the Secrets are Kept\n2024\nOil on canvas\n36 x 48 in", height: 500 },
     { images: [artwork29], description: "Self-Portrait #4\n2023\nMixed media on paper\n19 x 13 in", height: 360 },
     { images: [artwork2], description: "Bodies Transcending\n2022\nAcrylic on canvas\n48 x 36 in", height: 480 },
-    { images: [artwork6], description: "Mayari: Diyosa ng Buwan\n2023\nDigital GIF", height: 320 },
+    { images: [artwork6], description: "Mayari: Diyosa ng Buwan\n2023\nDigital GIF", height: 320, mediaType: 'video' },
     { images: [artwork10], description: "Loving Mother and Daughter\n2024\nPencil, ink and thread on paper\n32 x 43.5 in", height: 440 },
     { images: [artwork14], description: "Ang Bigat ng Dibdib ko\n2025\nOil on canvas\n48 x 48 in", height: 460 },
     { images: [artwork18], description: "Haze in motion\n2025\nOil on canvas\n30 x 24 in", height: 390 },
@@ -132,6 +133,20 @@ const Works = () => {
                 style={{ height: `${artwork.height}px` }}
               >
                 {/* Render different layouts based on artwork.layout */}
+                {/* Handle video artworks */}
+                {artwork.mediaType === 'video' && (
+                  <video
+                    src={artwork.images[0]}
+                    controls
+                    autoPlay={false}
+                    muted
+                    loop
+                    className="w-full h-full object-cover"
+                    onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
+                  />
+                )}
+
+                
                 {!artwork.layout && (
                   <img
                     src={artwork.images[0]}

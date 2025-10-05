@@ -202,6 +202,19 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
                   ))}
                 </div>
               )}
+
+              {layout !== 'video' ? (
+                <img src={images[currentIndex]} alt="" className="max-h-[80vh] mx-auto object-contain" />
+                  ) : (
+                    <video 
+                      src={images[currentIndex]} 
+                      controls 
+                      autoPlay 
+                      muted={false} 
+                      className="max-h-[80vh] mx-auto object-contain" 
+                    />
+                  )}
+
               
               {layout === 'rect-square' && (
                 <div className="flex flex-col gap-4 max-h-[80vh]">
