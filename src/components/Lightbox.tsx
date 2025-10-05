@@ -32,6 +32,7 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
     if (!isZoomed || !imageContainerRef.current) return;
 
     const rect = imageContainerRef.current.getBoundingClientRect();
+    const sensitivity = 200; // Increase this to make image move faster with mouse
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
     const transformX = (x - 0.5) * -100;
