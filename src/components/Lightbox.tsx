@@ -98,7 +98,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   src={images[currentImageIndex]}
   alt={description.split('\n')[0]}
   className="object-contain max-h-[90vh] max-w-full cursor-zoom-out transition-transform duration-100 "
-  style={{ transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
+  style={{ transform: `scale(2.0)) translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
   onClick={() => handleImageClick()}
   draggable={false}
 />
