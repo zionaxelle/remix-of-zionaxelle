@@ -125,7 +125,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
                       key={idx}
                       src={img}
                       alt={`${description.split('\n')[0]} - ${idx + 1}`}
-                      className="object-contain max-h-[80vh] max-w-[50%] cursor-zoom-in transition-opacity hover:opacity-100"
+                      className="object-contain max-h-[90vh] max-w-[90%] cursor-zoom-in transition-opacity hover:opacity-100"
                       onClick={() => handleImageClick(idx)}
                       draggable={false}
                     />
