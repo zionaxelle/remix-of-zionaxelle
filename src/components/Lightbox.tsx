@@ -127,17 +127,22 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       src={img}
       alt={`${description.split('\n')[0]} - ${idx + 1}`}
       className={`object-contain cursor-zoom-in transition-opacity hover:opacity-100 ${
-        layout === 'vertical-2' ? 'max-h-[calc(50vh-4rem)]' :
-        layout === 'horizontal-2' ? 'max-h-[calc(100vh-8rem)] max-w-[calc(50vw-2rem)]' :
-        layout === 'horizontal-3' ? 'max-h-[calc(100vh-8rem)] max-w-[calc(33vw-2rem)]' :
-        layout === 'rect-square' ? 'max-h-[calc(100vh-8rem)] max-w-[calc(50vw-2rem)]' :
-        'max-h-[calc(100vh-8rem)]'
+        layout === 'vertical-2'
+          ? 'max-h-[calc(50vh-4rem)]'
+          : layout === 'horizontal-2'
+          ? 'max-h-[calc(100vh-8rem)] max-w-[calc(50vw-2rem)]'
+          : layout === 'horizontal-3'
+          ? 'max-h-[calc(100vh-8rem)] max-w-[calc(33vw-2rem)]'
+          : layout === 'rect-square'
+          ? 'h-auto max-h-[calc(100vh-8rem)] w-[calc(50vw-2rem)] object-contain'
+          : 'max-h-[calc(100vh-8rem)]'
       }`}
       onClick={() => handleImageClick(idx)}
       draggable={false}
     />
   ))}
 </div>
+
 
 
 
