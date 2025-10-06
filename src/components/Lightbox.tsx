@@ -134,7 +134,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
           : layout === 'horizontal-3'
           ? 'max-h-[calc(100vh-10rem)] max-w-[calc(33vw-3rem)]'
           : layout === 'rect-square'
-          ? 'max-h-[calc(80vh-12rem)] max-w-[calc(40vw-3rem)]' // 👈 smaller than before
+          ? 'w-[35vw] max-h-[70vh] object-contain' // 👈 equal fixed width, scaled smaller
           : 'max-h-[calc(100vh-10rem)]'
       }`}
       onClick={() => handleImageClick(idx)}
@@ -142,6 +142,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     />
   ))}
 </div>
+
 
 
 
