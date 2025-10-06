@@ -49,7 +49,6 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
 
 const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   if (!isZoomed || !imageContainerRef.current) return;
-    setMousePosition({ x: 0, y: 0 });
 
   const container = imageContainerRef.current;
   const img = container.querySelector('img') as HTMLImageElement;
@@ -61,19 +60,21 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
 
   const zoomScale = 1.5;
 
-  const overflowX = (img.clientWidth * zoomScale - rect.width) / 2;
-  const overflowY = (img.clientHeight * zoomScale - rect.height) / 2;
+  // Extra space caused by zoom
+  const extraX = (img.clientWidth * zoomScale - rect.width) / 2;
+  const extraY = (img.clientHeight * zoomScale - rect.height) / 2;
 
   // Invert both axes: mouse right → image left, mouse down → image up
-  const translateX = -((mouseX - 0.5) * 2 * overflowX);
-  const translateY = -((mouseY - 0.5) * 2 * overflowY);
+  const translateX = -((mouseX - 0.5) * 2 * extraX);
+  const translateY = -((mouseY - 0.5) * 2 * extraY);
 
-  // Clamp to prevent moving out of bounds
-  const clampedX = Math.max(-overflowX, Math.min(overflowX, translateX));
-  const clampedY = Math.max(-overflowY, Math.min(overflowY, translateY));
+  // Clamp to prevent moving outside container
+  const clampedX = Math.max(-extraX, Math.min(extraX, translateX));
+  const clampedY = Math.max(-extraY, Math.min(extraY, translateY));
 
   setMousePosition({ x: clampedX, y: clampedY });
 };
+
 
 
 
@@ -105,13 +106,14 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
           {isZoomed ? (
             <div className="flex items-center justify-center w-full h-full">
               <img
-                src={images[currentImageIndex]}
-                alt={description.split('\n')[0]}
-                className="object-contain max-h-[100vh] max-w-full cursor-zoom-out transition-transform duration-100"
-                style={{ transform: `scale(1.5) translate(0px, 0px)` }} // always centered
-                onClick={() => handleImageClick()}
-                draggable={false}
-              />
+  src={images[currentImageIndex]}
+  alt={description.split('\n')[0]}
+  className="object-contain max-h-[100vh] max-w-full cursor-zoom-out transition-transform duration-100"
+  style={{ transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
+  onClick={() => handleImageClick()}
+  draggable={false}
+/>
+
             </div>
           ) : (
             <>
