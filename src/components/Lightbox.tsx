@@ -97,7 +97,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
             <img
   src={images[currentImageIndex]}
   alt={description.split('\n')[0]}
-  className="object-contain max-h-[95vh] max-w-full cursor-zoom-out transition-transform duration-100 "
+  className="object-contain max-h-[100vh] max-w-full cursor-zoom-out transition-transform duration-100 "
   style={{ transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
   onClick={() => handleImageClick()}
   draggable={false}
@@ -125,7 +125,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
                       key={idx}
                       src={img}
                       alt={`${description.split('\n')[0]} - ${idx + 1}`}
-                      className="object-contain max-h-[80vh] max-w-[32%] cursor-zoom-in transition-opacity hover:opacity-100"
+                      className="object-contain max-h-[80vh] max-w-[50%] cursor-zoom-in transition-opacity hover:opacity-100"
                       onClick={() => handleImageClick(idx)}
                       draggable={false}
                     />
@@ -137,7 +137,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         </div>
 
         {/* Description */}
-        <div className="absolute bottom-6 right-6 w-32 text-[0.73rem] text-black">
+        <div className="absolute bottom-16 right-16 w-32 text-[0.73rem] text-black">
           <p className="whitespace-pre-line">{description}</p>
         </div>
       </div>
