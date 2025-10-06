@@ -117,28 +117,28 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
               ) : (
                 // Multi-image layouts (all images visible)
                 <div
-                  className={`flex ${
-                    layout?.startsWith('horizontal') ? 'flex-row' : 'flex-col'
-                  } gap-4 justify-center items-center max-h-[calc(100vh-8rem)]`}
-                >
-                  {images.map((img, idx) => (
-                    <img
-                      key={idx}
-                      src={img}
-                      alt={`${description.split('\n')[0]} - ${idx + 1}`}
-                      className={`object-contain cursor-zoom-in transition-opacity hover:opacity-100 ${
-                        layout === 'vertical-2' ? 'max-h-[calc(50vh-4rem)]' : 
-                        layout === 'horizontal-2' ? 'max-h-[calc(100vh-8rem)] max-w-[calc(50vw-2rem)]' :
-                        layout === 'horizontal-3' ? 'max-h-[calc(100vh-8rem)] max-w-[calc(33vw-2rem)]' :
-                        layout === 'rect-square' && idx === 0 ? 'max-h-[calc(60vh-4rem)]' :
-                        layout === 'rect-square' && idx === 1 ? 'max-h-[calc(40vh-4rem)]' :
-                        'max-h-[calc(100vh-8rem)]'
-                      }`}
-                      onClick={() => handleImageClick(idx)}
-                      draggable={false}
-                    />
-                  ))}
-                </div>
+  className={`flex ${
+    layout?.startsWith('horizontal') ? 'flex-row' : 'flex-col'
+  } gap-4 justify-center items-center max-h-[calc(100vh-8rem)]`}
+>
+  {images.map((img, idx) => (
+    <img
+      key={idx}
+      src={img}
+      alt={`${description.split('\n')[0]} - ${idx + 1}`}
+      className={`object-contain cursor-zoom-in transition-opacity hover:opacity-100 ${
+        layout === 'vertical-2' ? 'max-h-[calc(50vh-4rem)]' :
+        layout === 'horizontal-2' ? 'max-h-[calc(100vh-8rem)] max-w-[calc(50vw-2rem)]' :
+        layout === 'horizontal-3' ? 'max-h-[calc(100vh-8rem)] max-w-[calc(33vw-2rem)]' :
+        layout === 'rect-square' ? 'max-w-[calc(50vw-2rem)]' : // both rect & square same width
+        'max-h-[calc(100vh-8rem)]'
+      }`}
+      onClick={() => handleImageClick(idx)}
+      draggable={false}
+    />
+  ))}
+</div>
+
               )}
             </>
           )}
