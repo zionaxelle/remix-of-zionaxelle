@@ -155,7 +155,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         </div>
 
         {/* Description */}
-        <div className="absolute bottom-16 right-16 w-32 text-[0.73rem] text-black">
+        <div className="absolute bottom-16 right-16 w-32 text-[0.73rem] text-black bg-white/80 p-3 rounded">
           <p className="whitespace-pre-line">{description}</p>
         </div>
       </div>
