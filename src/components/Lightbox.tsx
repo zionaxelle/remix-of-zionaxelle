@@ -58,15 +58,19 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   const x = (e.clientX - rect.left) / rect.width; // 0 → 1
   const y = (e.clientY - rect.top) / rect.height; // 0 → 1
 
-  const zoomScale = 1.5;
+  const zoomScale = 1.5; // zoom factor
+
+  // How much extra image is outside container
   const extraX = (img.clientWidth * zoomScale - rect.width) / 2;
   const extraY = (img.clientHeight * zoomScale - rect.height) / 2;
 
-  // Only move proportionally if mouse actually moves
-  const transformX = (0.5 - x) * 2 * extraX;
-  const transformY = (0.5 - y) * 2 * extraY;
+  // Invert the translation: moving mouse right/up moves image left/down
+  const transformX = Math.max(-extraX, Math.min(extraX, (x - 0.5) * 2 * extraX * -1));
+  const transformY = Math.max(-extraY, Math.min(extraY, (y - 0.5) * 2 * extraY * -1));
 
   setMousePosition({ x: transformX, y: transformY });
+};
+
 };
 
 
