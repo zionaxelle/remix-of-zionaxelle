@@ -130,7 +130,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         layout === 'vertical-2' ? 'max-h-[calc(50vh-4rem)]' :
         layout === 'horizontal-2' ? 'max-h-[calc(100vh-8rem)] max-w-[calc(50vw-2rem)]' :
         layout === 'horizontal-3' ? 'max-h-[calc(100vh-8rem)] max-w-[calc(33vw-2rem)]' :
-        layout === 'rect-square' ? 'max-w-[calc(50vw-2rem)]' : // both rect & square same width
+        layout === 'rect-square' ? 'max-w-[calc(50vw-2rem)] max-h-[calc(100vh-8rem)]' :
         'max-h-[calc(100vh-8rem)]'
       }`}
       onClick={() => handleImageClick(idx)}
@@ -138,6 +138,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     />
   ))}
 </div>
+
 
               )}
             </>
