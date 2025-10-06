@@ -64,7 +64,7 @@ const createArtworkCollection = (): Artwork[] => {
     { images: [artwork14], description: "Ang Bigat ng Dibdib ko\n2025\nOil on canvas\n48 x 48 in" },
     { images: [artwork18], description: "Haze in motion\n2025\nOil on canvas\n30 x 24 in" },
     { images: [artwork22], description: "Untitled\n2025\nChalk pastel on paper\n39 x 28 in" },
-    { images: [artwork26a, artwork26b], description: "To Bare Oneself\n2024\nOil on canvas\n39 x 30 in", layout: 'vertical-2' },
+    { images: [artwork26a, artwork26b], description: "To Bare Oneself\n2024\nOil on canvas\n39 x 30 in", layout: 'rect-square' },
     { images: [artwork30], description: "The Oldest Flower to Live in My Room\n2023\nOil on canvas\n36 x 24 in" },
     { images: [artwork3a, artwork3b], description: "Self-portrait #2\n2021\nAcrylic on canvas\n40 x 32 in", layout: 'vertical-2' },
     { images: [artwork7], description: "The Perfect Face\n2023\nOil pastel on paper\n30 x 12 in" },

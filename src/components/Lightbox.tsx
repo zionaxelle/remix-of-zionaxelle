@@ -68,7 +68,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-white">
+    <div className="fixed inset-0 z-50 bg-white flex items-center justify-center p-6">
       {/* Close Button */}
       <button
         onClick={onClose}
@@ -78,13 +78,8 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         <X size={20} />
       </button>
 
-      {/* Description - positioned absolutely to not affect centering */}
-      <div className="absolute bottom-16 right-16 w-32 text-[0.73rem] text-black z-50">
-        <p className="whitespace-pre-line">{description}</p>
-      </div>
-
       <div 
-        className="flex items-center justify-center w-full h-full overflow-hidden"
+        className="flex items-center justify-center w-full h-full max-w-7xl mx-auto overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <div 
@@ -94,18 +89,20 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         >
           {/* Zoomed Single Image */}
           {isZoomed ? (
-            <div className="flex items-center justify-center w-full h-full absolute inset-0">
+            <div className="flex items-center justify-center w-full h-full">
               <img
-                src={images[currentImageIndex]}
-                alt={description.split('\n')[0]}
-                className="object-contain max-h-[100vh] max-w-full cursor-zoom-out transition-transform duration-100"
-                style={{
-                  transform: `scale(1.5)`,
-                  transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
-                }}
-                onClick={() => handleImageClick()}
-                draggable={false}
-              />
+  src={images[currentImageIndex]}
+  alt={description.split('\n')[0]}
+  className="object-contain max-h-[100vh] max-w-full cursor-zoom-out transition-transform duration-100"
+  style={{
+    transform: `scale(1.5)`, // zoom scale
+    transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`, // zoom around cursor
+  }}
+  onClick={() => handleImageClick()}
+  draggable={false}
+/>
+
+
             </div>
           ) : (
             <>
@@ -145,6 +142,11 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
               )}
             </>
           )}
+        </div>
+
+        {/* Description */}
+        <div className="absolute bottom-16 right-16 w-32 text-[0.73rem] text-black">
+          <p className="whitespace-pre-line">{description}</p>
         </div>
       </div>
     </div>
