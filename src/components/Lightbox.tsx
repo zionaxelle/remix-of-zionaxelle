@@ -49,6 +49,7 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
 
 const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   if (!isZoomed || !imageContainerRef.current) return;
+    setMousePosition({ x: 0, y: 0 });
 
   const container = imageContainerRef.current;
   const img = container.querySelector('img') as HTMLImageElement;
