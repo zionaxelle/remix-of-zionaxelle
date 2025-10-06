@@ -51,29 +51,14 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   if (!isZoomed || !imageContainerRef.current) return;
 
   const container = imageContainerRef.current;
-  const img = container.querySelector('img') as HTMLImageElement;
-  if (!img) return;
-
   const rect = container.getBoundingClientRect();
-  const mouseX = (e.clientX - rect.left) / rect.width; // 0 → 1
-  const mouseY = (e.clientY - rect.top) / rect.height; // 0 → 1
 
-  const zoomScale = 1.5;
+  const originX = ((e.clientX - rect.left) / rect.width) * 100; // 0 → 100%
+  const originY = ((e.clientY - rect.top) / rect.height) * 100;
 
-  // Extra space caused by zoom
-  const extraX = (img.clientWidth * zoomScale - rect.width) / 2;
-  const extraY = (img.clientHeight * zoomScale - rect.height) / 2;
-
-  // Invert both axes: mouse right → image left, mouse down → image up
-  const translateX = -((mouseX - 0.5) * 2 * extraX);
-  const translateY = -((mouseY - 0.5) * 2 * extraY);
-
-  // Clamp to prevent moving outside container
-  const clampedX = Math.max(-extraX, Math.min(extraX, translateX));
-  const clampedY = Math.max(-extraY, Math.min(extraY, translateY));
-
-  setMousePosition({ x: clampedX, y: clampedY });
+  setMousePosition({ x: originX, y: originY });
 };
+
 
 
 
@@ -109,10 +94,14 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   src={images[currentImageIndex]}
   alt={description.split('\n')[0]}
   className="object-contain max-h-[100vh] max-w-full cursor-zoom-out transition-transform duration-100"
-  style={{ transform: `scale(1.5) translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
+  style={{
+    transform: `scale(1.5)`, // zoom scale
+    transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`, // zoom around cursor
+  }}
   onClick={() => handleImageClick()}
   draggable={false}
 />
+
 
             </div>
           ) : (
