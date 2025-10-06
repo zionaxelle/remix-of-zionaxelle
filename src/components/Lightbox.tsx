@@ -55,23 +55,25 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   if (!img) return;
 
   const rect = container.getBoundingClientRect();
-  const x = (e.clientX - rect.left) / rect.width; // 0 → 1
-  const y = (e.clientY - rect.top) / rect.height; // 0 → 1
+  const mouseX = (e.clientX - rect.left) / rect.width; // 0 → 1
+  const mouseY = (e.clientY - rect.top) / rect.height; // 0 → 1
 
-  const zoomScale = 1.5; // zoom factor
+  const zoomScale = 1.5;
 
-  // How much extra image is outside container
-  const extraX = (img.clientWidth * zoomScale - rect.width) / 2;
-  const extraY = (img.clientHeight * zoomScale - rect.height) / 2;
+  const overflowX = (img.clientWidth * zoomScale - rect.width) / 2;
+  const overflowY = (img.clientHeight * zoomScale - rect.height) / 2;
 
-  // Invert the translation: moving mouse right/up moves image left/down
-  const transformX = Math.max(-extraX, Math.min(extraX, (x - 0.5) * 2 * extraX * -1));
-  const transformY = Math.max(-extraY, Math.min(extraY, (y - 0.5) * 2 * extraY * -1));
+  // Invert both axes: mouse right → image left, mouse down → image up
+  const translateX = -((mouseX - 0.5) * 2 * overflowX);
+  const translateY = -((mouseY - 0.5) * 2 * overflowY);
 
-  setMousePosition({ x: transformX, y: transformY });
+  // Clamp to prevent moving out of bounds
+  const clampedX = Math.max(-overflowX, Math.min(overflowX, translateX));
+  const clampedY = Math.max(-overflowY, Math.min(overflowY, translateY));
+
+  setMousePosition({ x: clampedX, y: clampedY });
 };
 
-};
 
 
 
