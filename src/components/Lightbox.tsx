@@ -119,7 +119,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
                 <div
   className={`flex ${
     layout?.startsWith('horizontal') ? 'flex-row' : 'flex-col'
-  } gap-4 justify-center items-center max-h-[calc(100vh-8rem)]`}
+  } gap-4 justify-center items-center max-h-[calc(100vh-8rem)] p-8`}
 >
   {images.map((img, idx) => (
     <img
@@ -128,20 +128,22 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       alt={`${description.split('\n')[0]} - ${idx + 1}`}
       className={`object-contain cursor-zoom-in transition-opacity hover:opacity-100 ${
         layout === 'vertical-2'
-          ? 'max-h-[calc(50vh-4rem)]'
+          ? 'max-h-[calc(50vh-6rem)]'
           : layout === 'horizontal-2'
-          ? 'max-h-[calc(100vh-8rem)] max-w-[calc(50vw-2rem)]'
+          ? 'max-h-[calc(100vh-10rem)] max-w-[calc(50vw-3rem)]'
           : layout === 'horizontal-3'
-          ? 'max-h-[calc(100vh-8rem)] max-w-[calc(33vw-2rem)]'
+          ? 'max-h-[calc(100vh-10rem)] max-w-[calc(33vw-3rem)]'
           : layout === 'rect-square'
-          ? 'h-auto max-h-[calc(100vh-8rem)] w-[calc(50vw-2rem)] object-contain'
-          : 'max-h-[calc(100vh-8rem)]'
+          ? 'max-h-[calc(80vh-12rem)] max-w-[calc(40vw-3rem)]' // 👈 smaller than before
+          : 'max-h-[calc(100vh-10rem)]'
       }`}
       onClick={() => handleImageClick(idx)}
       draggable={false}
     />
   ))}
 </div>
+
+
 
 
 
