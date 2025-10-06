@@ -34,6 +34,8 @@ const Lightbox = ({ isOpen, images, description, layout, initialImageIndex = 0, 
 
   const handleImageClick = (index?: number) => {
   if (index !== undefined) setCurrentImageIndex(index);
+    setMousePosition({ x: 0, y: 0 });
+
 
   if (!isZoomed && imageContainerRef.current) {
     const container = imageContainerRef.current;
@@ -56,17 +58,17 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   const x = (e.clientX - rect.left) / rect.width; // 0 → 1
   const y = (e.clientY - rect.top) / rect.height; // 0 → 1
 
-  // Calculate extra space due to zoom
-  const zoomScale = 1.5; // Same as your zoom
+  const zoomScale = 1.5;
   const extraX = (img.clientWidth * zoomScale - rect.width) / 2;
   const extraY = (img.clientHeight * zoomScale - rect.height) / 2;
 
-  // Transform proportionally but bounded
-  const transformX = Math.max(-extraX, Math.min(extraX, (0.5 - x) * 2 * extraX));
-  const transformY = Math.max(-extraY, Math.min(extraY, (0.5 - y) * 2 * extraY));
+  // Only move proportionally if mouse actually moves
+  const transformX = (0.5 - x) * 2 * extraX;
+  const transformY = (0.5 - y) * 2 * extraY;
 
   setMousePosition({ x: transformX, y: transformY });
 };
+
 
 
 
