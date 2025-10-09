@@ -1,5 +1,5 @@
-
 import Navigation from '@/components/Navigation';
+import artistPortrait from '@/assets/artist-portrait.jpg';
 
 const Bio = () => {
   return (
@@ -12,12 +12,11 @@ const Bio = () => {
             {/* Artist Portrait - Left Side */}
             <div className="relative">
               <div className="aspect-[3/5] bg-muted rounded-lg overflow-hidden sticky top-20">
-                <div className="w-full h-full bg-gradient-to-b from-artist-red via-muted to-background flex items-center justify-center">
-                  <div className="text-center">
-                    <p className="text-white font-bebas text-4xl tracking-wider mb-2">ZION</p>
-                    <p className="text-white font-bebas text-4xl tracking-wider">AXELLE</p>
-                  </div>
-                </div>
+                <img 
+                  src={artistPortrait} 
+                  alt="Zion Axelle - Artist Portrait" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
