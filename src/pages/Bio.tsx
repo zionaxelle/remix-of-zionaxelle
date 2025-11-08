@@ -205,7 +205,7 @@ const Bio = () => {
           <p className="text-xs text-muted-foreground">
             Website developed by{' '}
             <a href="/geetika" className="hover:text-artist-red transition-colors underline">
-              Geetika
+              Geetika                            
             </a>
           </p>
           <p>                      </p>
