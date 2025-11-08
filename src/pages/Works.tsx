@@ -91,6 +91,11 @@ const Works = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [hoveredArtwork, setHoveredArtwork] = useState<number | null>(null);
   const [initialImageIndex, setInitialImageIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+
+  const handleImageLoad = (artworkId: number) => {
+    setLoadedImages(prev => new Set(prev).add(artworkId));
+  };
 
   const openLightbox = (artwork: Artwork, imageIndex: number = 0) => {
     setSelectedArtwork(artwork);
@@ -110,10 +115,13 @@ const Works = () => {
       <main className="pt-20">
         <div className="w-full px-4">
           <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-            {artworks.map((artwork) => (
+            {artworks.map((artwork, index) => (
               <div
                 key={artwork.id}
-                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-all duration-300 relative"
+                className={`masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-all duration-500 relative ${
+                  loadedImages.has(artwork.id) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: `${Math.min(index * 50, 400)}ms` }}
                 onClick={() => openLightbox(artwork)}
                 onMouseEnter={() => setHoveredArtwork(artwork.id)}
                 onMouseLeave={() => setHoveredArtwork(null)}
@@ -126,6 +134,7 @@ const Works = () => {
                     muted
                     loop
                     preload="metadata"
+                    onLoadedData={() => handleImageLoad(artwork.id)}
                   />
                 )}
 
@@ -135,7 +144,8 @@ const Works = () => {
                     src={artwork.images[0]}
                     alt={artwork.description.split('\n')[0]}
                     className="w-full h-auto object-cover"
-                    loading="lazy"
+                    loading={index < 12 ? "eager" : "lazy"}
+                    onLoad={() => handleImageLoad(artwork.id)}
                   />
                 )}
 
@@ -148,7 +158,8 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="w-full object-cover rounded"
-                        loading="lazy"
+                        loading={index < 12 ? "eager" : "lazy"}
+                        onLoad={() => idx === 0 && handleImageLoad(artwork.id)}
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -164,7 +175,8 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading="lazy"
+                        loading={index < 12 ? "eager" : "lazy"}
+                        onLoad={() => idx === 0 && handleImageLoad(artwork.id)}
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -180,7 +192,8 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading="lazy"
+                        loading={index < 12 ? "eager" : "lazy"}
+                        onLoad={() => idx === 0 && handleImageLoad(artwork.id)}
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -194,14 +207,15 @@ const Works = () => {
                       src={artwork.images[0]}
                       alt=""
                       className="w-full h-3/5 object-cover rounded"
-                      loading="lazy"
+                      loading={index < 12 ? "eager" : "lazy"}
+                      onLoad={() => handleImageLoad(artwork.id)}
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
                     />
                     <img
                       src={artwork.images[1]}
                       alt=""
                       className="w-full h-2/5 object-cover rounded"
-                      loading="lazy"
+                      loading={index < 12 ? "eager" : "lazy"}
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
                     />
                   </div>
