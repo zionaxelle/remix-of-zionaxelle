@@ -139,7 +139,7 @@ const Contact = () => {
         <p className="text-xs text-white/80">
           Website Developed by{' '}
           <a 
-            href="geetikagehlot.com" 
+            href="www.geetikagehlot.com" 
             className="hover:text-white transition-colors underline"
           >
             Geetika Gehlot
