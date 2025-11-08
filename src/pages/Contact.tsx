@@ -139,15 +139,15 @@ const Contact = () => {
     <p className="text-xs text-muted-foreground">
       Website developed by{' '}
       <a
-        href="/geetika"  // Link to subpage for Geetika
+        href="/geetika"
         className="hover:text-artist-red transition-colors underline"
       >
         Geetika
       </a>
     </p>
-    <div className="text-xs text-muted-foreground">
+    <div className="text-xs text-muted-foreground flex flex-wrap justify-center gap-4">
       <p>
-        <strong>Email:</strong> 
+        <strong>Email:</strong>{' '}
         <a
           href="mailto:geetikagehlot2009@gmail.com"
           className="hover:text-artist-red transition-colors underline"
@@ -180,6 +180,7 @@ const Contact = () => {
     </div>
   </div>
 </footer>
+
     </div>
   );
 };
