@@ -226,9 +226,9 @@ const Works = () => {
 
 
       {/* Footer */}
-      <footer className="py-6 text-center border-t border-border bg-gray-100">
+      <footer className="py-6 text-left border-t border-border bg-gray-100">
         <div className="space-y-4">
-          <div className="text-xs text-muted-foreground flex flex-wrap justify-center gap-4">
+          <div className="text-xs text-muted-foreground flex flex-wrap gap-4">
           <p className="text-s text-muted-foreground">
             Website developed by{' '}
             <a href="/geetika" className="hover:text-artist-red transition-colors underline">
