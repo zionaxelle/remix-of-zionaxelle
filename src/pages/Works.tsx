@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Lightbox from '@/components/Lightbox';
-import ProgressiveImage from '@/components/ProgressiveImage';
 
 // Import artworks
 import artwork1 from '@/assets/artwork-1.jpg';
@@ -92,11 +91,6 @@ const Works = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [hoveredArtwork, setHoveredArtwork] = useState<number | null>(null);
   const [initialImageIndex, setInitialImageIndex] = useState(0);
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-
-  const handleImageLoad = (artworkId: number) => {
-    setLoadedImages(prev => new Set(prev).add(artworkId));
-  };
 
   const openLightbox = (artwork: Artwork, imageIndex: number = 0) => {
     setSelectedArtwork(artwork);
@@ -116,42 +110,32 @@ const Works = () => {
       <main className="pt-20">
         <div className="w-full px-4">
           <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-            {artworks.map((artwork, index) => (
+            {artworks.map((artwork) => (
               <div
                 key={artwork.id}
-                className={`masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-all duration-500 relative ${
-                  loadedImages.has(artwork.id) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
-                style={{ transitionDelay: `${Math.min(index * 50, 400)}ms` }}
+                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-all duration-300 relative"
                 onClick={() => openLightbox(artwork)}
                 onMouseEnter={() => setHoveredArtwork(artwork.id)}
                 onMouseLeave={() => setHoveredArtwork(null)}
               >
                 {/* Video block - hide controls in grid */}
                 {artwork.layout === 'video' && (
-                  <div className="relative overflow-hidden">
-                    {!loadedImages.has(artwork.id) && (
-                      <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-muted via-muted-foreground/10 to-muted aspect-video" />
-                    )}
-                    <video
-                      src={artwork.images[0]}
-                      className="w-full object-cover aspect-video"
-                      muted
-                      loop
-                      preload="metadata"
-                      onLoadedData={() => handleImageLoad(artwork.id)}
-                    />
-                  </div>
+                  <video
+                    src={artwork.images[0]}
+                    className="w-full object-cover aspect-video"
+                    muted
+                    loop
+                    preload="metadata"
+                  />
                 )}
 
                 {/* Single image */}
                 {!artwork.layout && (
-                  <ProgressiveImage
+                  <img
                     src={artwork.images[0]}
                     alt={artwork.description.split('\n')[0]}
                     className="w-full h-auto object-cover"
-                    loading={index < 12 ? "eager" : "lazy"}
-                    onLoad={() => handleImageLoad(artwork.id)}
+                    loading="lazy"
                   />
                 )}
 
@@ -159,13 +143,12 @@ const Works = () => {
                 {artwork.layout === 'vertical-2' && (
                   <div className="flex flex-col gap-2">
                     {artwork.images.map((img, idx) => (
-                      <ProgressiveImage
+                      <img
                         key={idx}
                         src={img}
                         alt=""
                         className="w-full object-cover rounded"
-                        loading={index < 12 ? "eager" : "lazy"}
-                        onLoad={() => idx === 0 && handleImageLoad(artwork.id)}
+                        loading="lazy"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -176,13 +159,12 @@ const Works = () => {
                 {artwork.layout === 'horizontal-2' && (
                   <div className="flex gap-2">
                     {artwork.images.map((img, idx) => (
-                      <ProgressiveImage
+                      <img
                         key={idx}
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading={index < 12 ? "eager" : "lazy"}
-                        onLoad={() => idx === 0 && handleImageLoad(artwork.id)}
+                        loading="lazy"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -193,13 +175,12 @@ const Works = () => {
                 {artwork.layout === 'horizontal-3' && (
                   <div className="flex gap-2">
                     {artwork.images.map((img, idx) => (
-                      <ProgressiveImage
+                      <img
                         key={idx}
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading={index < 12 ? "eager" : "lazy"}
-                        onLoad={() => idx === 0 && handleImageLoad(artwork.id)}
+                        loading="lazy"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -209,19 +190,18 @@ const Works = () => {
                 {/* Rect-square layout */}
                 {artwork.layout === 'rect-square' && (
                   <div className="flex flex-col gap-2">
-                    <ProgressiveImage
+                    <img
                       src={artwork.images[0]}
                       alt=""
                       className="w-full h-3/5 object-cover rounded"
-                      loading={index < 12 ? "eager" : "lazy"}
-                      onLoad={() => handleImageLoad(artwork.id)}
+                      loading="lazy"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
                     />
-                    <ProgressiveImage
+                    <img
                       src={artwork.images[1]}
                       alt=""
                       className="w-full h-2/5 object-cover rounded"
-                      loading={index < 12 ? "eager" : "lazy"}
+                      loading="lazy"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
                     />
                   </div>
