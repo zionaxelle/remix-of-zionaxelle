@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Lightbox from '@/components/Lightbox';
+import ProgressiveImage from '@/components/ProgressiveImage';
 
 // Import artworks
 import artwork1 from '@/assets/artwork-1.jpg';
@@ -128,19 +129,24 @@ const Works = () => {
               >
                 {/* Video block - hide controls in grid */}
                 {artwork.layout === 'video' && (
-                  <video
-                    src={artwork.images[0]}
-                    className="w-full object-cover aspect-video"
-                    muted
-                    loop
-                    preload="metadata"
-                    onLoadedData={() => handleImageLoad(artwork.id)}
-                  />
+                  <div className="relative overflow-hidden">
+                    {!loadedImages.has(artwork.id) && (
+                      <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-muted via-muted-foreground/10 to-muted aspect-video" />
+                    )}
+                    <video
+                      src={artwork.images[0]}
+                      className="w-full object-cover aspect-video"
+                      muted
+                      loop
+                      preload="metadata"
+                      onLoadedData={() => handleImageLoad(artwork.id)}
+                    />
+                  </div>
                 )}
 
                 {/* Single image */}
                 {!artwork.layout && (
-                  <img
+                  <ProgressiveImage
                     src={artwork.images[0]}
                     alt={artwork.description.split('\n')[0]}
                     className="w-full h-auto object-cover"
@@ -153,7 +159,7 @@ const Works = () => {
                 {artwork.layout === 'vertical-2' && (
                   <div className="flex flex-col gap-2">
                     {artwork.images.map((img, idx) => (
-                      <img
+                      <ProgressiveImage
                         key={idx}
                         src={img}
                         alt=""
@@ -170,7 +176,7 @@ const Works = () => {
                 {artwork.layout === 'horizontal-2' && (
                   <div className="flex gap-2">
                     {artwork.images.map((img, idx) => (
-                      <img
+                      <ProgressiveImage
                         key={idx}
                         src={img}
                         alt=""
@@ -187,7 +193,7 @@ const Works = () => {
                 {artwork.layout === 'horizontal-3' && (
                   <div className="flex gap-2">
                     {artwork.images.map((img, idx) => (
-                      <img
+                      <ProgressiveImage
                         key={idx}
                         src={img}
                         alt=""
@@ -203,7 +209,7 @@ const Works = () => {
                 {/* Rect-square layout */}
                 {artwork.layout === 'rect-square' && (
                   <div className="flex flex-col gap-2">
-                    <img
+                    <ProgressiveImage
                       src={artwork.images[0]}
                       alt=""
                       className="w-full h-3/5 object-cover rounded"
@@ -211,7 +217,7 @@ const Works = () => {
                       onLoad={() => handleImageLoad(artwork.id)}
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
                     />
-                    <img
+                    <ProgressiveImage
                       src={artwork.images[1]}
                       alt=""
                       className="w-full h-2/5 object-cover rounded"
