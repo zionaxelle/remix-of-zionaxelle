@@ -80,12 +80,15 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
               loop
               muted
               playsInline
+              preload={index === 0 ? "auto" : "none"}
             />
           ) : (
             <img
               src={artwork.image}
               alt={artwork.title}
               className="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "low"}
             />
           )}
           <div className="absolute inset-0 bg-black bg-opacity-5" />

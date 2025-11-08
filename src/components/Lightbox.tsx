@@ -100,6 +100,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
   }}
   onClick={() => handleImageClick()}
   draggable={false}
+  loading="eager"
 />
 
 
@@ -113,6 +114,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
                   controls
                   autoPlay
                   className="max-h-[calc(100vh-8rem)] max-w-full object-contain"
+                  preload="auto"
                 />
               ) : (
                 // Multi-image layouts (all images visible)
@@ -139,6 +141,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       }`}
       onClick={() => handleImageClick(idx)}
       draggable={false}
+      loading="eager"
     />
   ))}
 </div>
