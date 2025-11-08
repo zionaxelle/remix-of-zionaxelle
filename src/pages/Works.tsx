@@ -228,7 +228,7 @@ const Works = () => {
         <p className="text-xs text-muted-foreground">
           Website Developed by{' '}
           <a 
-            href="mailto:geetikagehlot2009@gmail.com" 
+            href="geetikagehlot.com" 
             className="hover:text-artist-red transition-colors underline"
           >
             Geetika Gehlot

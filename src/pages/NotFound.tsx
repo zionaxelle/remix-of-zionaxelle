@@ -23,5 +23,16 @@ const NotFound = () => {
     </div>
   );
 };
-
+      {/* Footer */}
+      <footer className="py-4 text-center border-t border-border">
+        <p className="text-xs text-muted-foreground">
+          Website Developed by{' '}
+          <a 
+            href="geetikagehlot.com" 
+            className="hover:text-artist-red transition-colors underline"
+          >
+            Geetika Gehlot
+          </a>
+        </p>
+      </footer>
 export default NotFound;
