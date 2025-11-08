@@ -201,7 +201,7 @@ const Bio = () => {
         <p className="text-xs text-muted-foreground">
           Website Developed by{' '}
           <a 
-            href="www.geetikagehlot.com" 
+            href="https://geetikagehlot.com/" 
             className="hover:text-artist-red transition-colors underline"
           >
             Geetika Gehlot
