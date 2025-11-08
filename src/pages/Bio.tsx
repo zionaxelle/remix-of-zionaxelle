@@ -208,6 +208,7 @@ const Bio = () => {
               Geetika
             </a>
           </p>
+          <p>                      </p>
             <p>
               <strong>Email:</strong>{' '}
               <a
