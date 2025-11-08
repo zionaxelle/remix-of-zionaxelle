@@ -223,52 +223,54 @@ const Works = () => {
         </div>
       </main>
 
-<footer className="py-6 text-center border-t border-border bg-gray-100">
-  <div className="space-y-4">
-    <p className="text-xs text-muted-foreground">
-      Website developed by{' '}
-      <a
-        href="/geetika"
-        className="hover:text-artist-red transition-colors underline"
-      >
-        Geetika
-      </a>
-    </p>
-    <div className="text-xs text-muted-foreground flex flex-wrap justify-center gap-4">
-      <p>
-        <strong>Email:</strong>{' '}
-        <a
-          href="mailto:geetikagehlot2009@gmail.com"
-          className="hover:text-artist-red transition-colors underline"
-        >
-          geetikagehlot2009@gmail.com
-        </a>
-      </p>
-      <p>
-        <strong>Website:</strong>{' '}
-        <a
-          href="https://geetikagehlot.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-artist-red transition-colors underline"
-        >
-          geetikagehlot.com
-        </a>
-      </p>
-      <p>
-        <strong>LinkedIn:</strong>{' '}
-        <a
-          href="https://www.linkedin.com/in/geetikagehlot"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-artist-red transition-colors underline"
-        >
-          www.linkedin.com/in/geetikagehlot
-        </a>
-      </p>
-    </div>
-  </div>
-</footer>
+
+
+      {/* Footer */}
+      <footer className="py-6 text-center border-t border-border bg-gray-100">
+        <div className="space-y-4">
+          <p className="text-xs text-muted-foreground">
+            Website developed by{' '}
+            <a href="/geetika" className="hover:text-artist-red transition-colors underline">
+              Geetika
+            </a>
+          </p>
+          <div className="text-xs text-muted-foreground flex flex-wrap justify-center gap-4">
+            <p>
+              <strong>Email:</strong>{' '}
+              <a
+                href="mailto:geetikagehlot2009@gmail.com"
+                className="hover:text-artist-red transition-colors underline"
+              >
+                geetikagehlot2009@gmail.com
+              </a>
+            </p>
+            <p>
+              <strong>Website:</strong>{' '}
+              <a
+                href="https://geetikagehlot.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-artist-red transition-colors underline"
+              >
+                geetikagehlot.com
+              </a>
+            </p>
+            <p>
+              <strong>LinkedIn:</strong>{' '}
+              <a
+                href="https://www.linkedin.com/in/geetikagehlot"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-artist-red transition-colors underline"
+              >
+                www.linkedin.com/in/geetikagehlot
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
+
+
 
 
       {/* Lightbox */}
