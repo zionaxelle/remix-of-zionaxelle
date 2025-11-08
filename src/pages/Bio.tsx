@@ -211,7 +211,7 @@ const Bio = () => {
             <p>
               <strong>Email:</strong>{' '}
               <a
-                href="mailto:geetikagehlot2009@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&to=geetikagehlot2009@gmail.com&su=Subject&body=Body"
                 className="hover:text-artist-red transition-colors underline"
               >
                 geetikagehlot2009@gmail.com
