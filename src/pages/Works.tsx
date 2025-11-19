@@ -127,7 +127,7 @@ const Works = () => {
                     loop
                     autoPlay
                     playsInline
-                    preload={index < 12 ? "auto" : "metadata"}
+                    preload="auto"
                   />
                 )}
 
@@ -137,7 +137,7 @@ const Works = () => {
                     src={artwork.images[0]}
                     alt={artwork.description.split('\n')[0]}
                     className="w-full h-auto object-cover"
-                    loading={index < 12 ? "eager" : "lazy"}
+                    loading="eager"
                   />
                 )}
 
@@ -150,7 +150,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="w-full object-cover rounded"
-                        loading={index < 12 ? "eager" : "lazy"}
+                        loading="eager"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -166,7 +166,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading={index < 12 ? "eager" : "lazy"}
+                        loading="eager"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -182,7 +182,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading={index < 12 ? "eager" : "lazy"}
+                        loading="eager"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -196,14 +196,14 @@ const Works = () => {
                       src={artwork.images[0]}
                       alt=""
                       className="w-full h-3/5 object-cover rounded"
-                      loading={index < 12 ? "eager" : "lazy"}
+                      loading="eager"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
                     />
                     <img
                       src={artwork.images[1]}
                       alt=""
                       className="w-full h-2/5 object-cover rounded"
-                      loading={index < 12 ? "eager" : "lazy"}
+                      loading="eager"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
                     />
                   </div>
