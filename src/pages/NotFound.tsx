@@ -27,7 +27,7 @@ const NotFound = () => {
 
 <footer className="py-4 text-center border-t border-border bg-gray-100">
   <div className="text-xs text-muted-foreground flex flex-wrap justify-center gap-6">
-<<<<<<< HEAD
+
     <a href="https://geetikagehlot.com/" className="hover:text-artist-red transition-colors underline">
       Developed by Geetika Gehlot
 
