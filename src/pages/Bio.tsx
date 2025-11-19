@@ -8,14 +8,14 @@ const Bio = () => {
       
       <main className="pt-20 px-6 pb-12">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:grid sm:grid-cols-2 gap-8 sm:gap-16 items-start">
-            {/* Artist Portrait - Phone: landscape above, Tablet+: full height left side */}
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+            {/* Artist Portrait - Mobile: landscape above, Desktop: full height left side */}
             <div className="relative w-full">
-              <div className="aspect-[3/2] sm:aspect-auto bg-muted rounded-lg overflow-hidden sm:sticky sm:top-20">
+              <div className="aspect-[3/2] md:aspect-auto bg-muted rounded-lg overflow-hidden md:sticky md:top-20">
                 <img 
                   src={artistPortrait} 
                   alt="Zion Axelle - Artist Portrait" 
-                  className="w-full h-full object-cover sm:object-contain sm:object-top"
+                  className="w-full h-full object-cover md:object-contain md:object-top"
                   loading="eager"
                   fetchPriority="high"
                 />
