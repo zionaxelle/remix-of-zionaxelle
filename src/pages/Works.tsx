@@ -110,10 +110,10 @@ const Works = () => {
       <main className="pt-20">
         <div className="w-full px-4">
           <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-            {artworks.map((artwork) => (
+            {artworks.map((artwork, index) => (
               <div
                 key={artwork.id}
-                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-all duration-300 relative animate-fade-in"
+                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-all duration-300 relative"
                 onClick={() => openLightbox(artwork)}
                 onMouseEnter={() => setHoveredArtwork(artwork.id)}
                 onMouseLeave={() => setHoveredArtwork(null)}
@@ -127,7 +127,7 @@ const Works = () => {
                     loop
                     autoPlay
                     playsInline
-                    preload="auto"
+                    preload={index < 12 ? "auto" : "metadata"}
                   />
                 )}
 
@@ -137,7 +137,7 @@ const Works = () => {
                     src={artwork.images[0]}
                     alt={artwork.description.split('\n')[0]}
                     className="w-full h-auto object-cover"
-                    loading="eager"
+                    loading={index < 12 ? "eager" : "lazy"}
                   />
                 )}
 
@@ -150,7 +150,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="w-full object-cover rounded"
-                        loading="eager"
+                        loading={index < 12 ? "eager" : "lazy"}
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -166,7 +166,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading="eager"
+                        loading={index < 12 ? "eager" : "lazy"}
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -182,7 +182,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading="eager"
+                        loading={index < 12 ? "eager" : "lazy"}
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -196,14 +196,14 @@ const Works = () => {
                       src={artwork.images[0]}
                       alt=""
                       className="w-full h-3/5 object-cover rounded"
-                      loading="eager"
+                      loading={index < 12 ? "eager" : "lazy"}
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
                     />
                     <img
                       src={artwork.images[1]}
                       alt=""
                       className="w-full h-2/5 object-cover rounded"
-                      loading="eager"
+                      loading={index < 12 ? "eager" : "lazy"}
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
                     />
                   </div>
