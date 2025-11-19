@@ -125,7 +125,7 @@ const Works = () => {
                     className="w-full object-cover aspect-video"
                     muted
                     loop
-                    preload="metadata"
+                    preload={artwork.id <= 8 ? "metadata" : "none"}
                   />
                 )}
 
@@ -135,7 +135,9 @@ const Works = () => {
                     src={artwork.images[0]}
                     alt={artwork.description.split('\n')[0]}
                     className="w-full h-auto object-cover"
-                    loading="lazy"
+                    loading={artwork.id <= 8 ? "eager" : "lazy"}
+                    fetchPriority={artwork.id <= 4 ? "high" : "auto"}
+                    decoding="async"
                   />
                 )}
 
@@ -148,7 +150,9 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="w-full object-cover rounded"
-                        loading="lazy"
+                        loading={artwork.id <= 8 ? "eager" : "lazy"}
+                        fetchPriority={artwork.id <= 4 ? "high" : "auto"}
+                        decoding="async"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -164,7 +168,9 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading="lazy"
+                        loading={artwork.id <= 8 ? "eager" : "lazy"}
+                        fetchPriority={artwork.id <= 4 ? "high" : "auto"}
+                        decoding="async"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -180,7 +186,9 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading="lazy"
+                        loading={artwork.id <= 8 ? "eager" : "lazy"}
+                        fetchPriority={artwork.id <= 4 ? "high" : "auto"}
+                        decoding="async"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -194,14 +202,18 @@ const Works = () => {
                       src={artwork.images[0]}
                       alt=""
                       className="w-full h-3/5 object-cover rounded"
-                      loading="lazy"
+                      loading={artwork.id <= 8 ? "eager" : "lazy"}
+                      fetchPriority={artwork.id <= 4 ? "high" : "auto"}
+                      decoding="async"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
                     />
                     <img
                       src={artwork.images[1]}
                       alt=""
                       className="w-full h-2/5 object-cover rounded"
-                      loading="lazy"
+                      loading={artwork.id <= 8 ? "eager" : "lazy"}
+                      fetchPriority={artwork.id <= 4 ? "high" : "auto"}
+                      decoding="async"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
                     />
                   </div>

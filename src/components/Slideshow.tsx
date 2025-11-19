@@ -89,6 +89,7 @@ const Slideshow = ({ onBackgroundChange }: SlideshowProps) => {
               className="w-full h-full object-cover"
               loading={index === 0 ? "eager" : "lazy"}
               fetchPriority={index === 0 ? "high" : "low"}
+              decoding="async"
             />
           )}
           <div className="absolute inset-0 bg-black bg-opacity-5" />
