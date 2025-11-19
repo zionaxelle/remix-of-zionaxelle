@@ -113,19 +113,19 @@ const Works = () => {
             {artworks.map((artwork) => (
               <div
                 key={artwork.id}
-                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-all duration-300 relative"
+                className="masonry-item rounded-lg overflow-hidden shadow-lg bg-white cursor-pointer transition-all duration-300 relative animate-fade-in"
                 onClick={() => openLightbox(artwork)}
                 onMouseEnter={() => setHoveredArtwork(artwork.id)}
                 onMouseLeave={() => setHoveredArtwork(null)}
               >
-                {/* Video block - hide controls in grid */}
+                {/* Video block */}
                 {artwork.layout === 'video' && (
                   <video
                     src={artwork.images[0]}
                     className="w-full object-cover aspect-video"
                     muted
                     loop
-                    preload="metadata"
+                    preload="auto"
                   />
                 )}
 
@@ -135,7 +135,7 @@ const Works = () => {
                     src={artwork.images[0]}
                     alt={artwork.description.split('\n')[0]}
                     className="w-full h-auto object-cover"
-                    loading="lazy"
+                    loading="eager"
                   />
                 )}
 
@@ -148,7 +148,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="w-full object-cover rounded"
-                        loading="lazy"
+                        loading="eager"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -164,7 +164,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading="lazy"
+                        loading="eager"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -180,7 +180,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading="lazy"
+                        loading="eager"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -194,14 +194,14 @@ const Works = () => {
                       src={artwork.images[0]}
                       alt=""
                       className="w-full h-3/5 object-cover rounded"
-                      loading="lazy"
+                      loading="eager"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
                     />
                     <img
                       src={artwork.images[1]}
                       alt=""
                       className="w-full h-2/5 object-cover rounded"
-                      loading="lazy"
+                      loading="eager"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
                     />
                   </div>
