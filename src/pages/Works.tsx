@@ -125,7 +125,7 @@ const Works = () => {
                     className="w-full object-cover aspect-video"
                     muted
                     loop
-                    preload={artwork.id <= 8 ? "metadata" : "none"}
+                    preload="metadata"
                   />
                 )}
 
@@ -135,9 +135,7 @@ const Works = () => {
                     src={artwork.images[0]}
                     alt={artwork.description.split('\n')[0]}
                     className="w-full h-auto object-cover"
-                    loading={artwork.id <= 8 ? "eager" : "lazy"}
-                    fetchPriority={artwork.id <= 4 ? "high" : "auto"}
-                    decoding="async"
+                    loading="lazy"
                   />
                 )}
 
@@ -150,9 +148,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="w-full object-cover rounded"
-                        loading={artwork.id <= 8 ? "eager" : "lazy"}
-                        fetchPriority={artwork.id <= 4 ? "high" : "auto"}
-                        decoding="async"
+                        loading="lazy"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -168,9 +164,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading={artwork.id <= 8 ? "eager" : "lazy"}
-                        fetchPriority={artwork.id <= 4 ? "high" : "auto"}
-                        decoding="async"
+                        loading="lazy"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -186,9 +180,7 @@ const Works = () => {
                         src={img}
                         alt=""
                         className="flex-1 object-cover rounded"
-                        loading={artwork.id <= 8 ? "eager" : "lazy"}
-                        fetchPriority={artwork.id <= 4 ? "high" : "auto"}
-                        decoding="async"
+                        loading="lazy"
                         onClick={(e) => { e.stopPropagation(); openLightbox(artwork, idx); }}
                       />
                     ))}
@@ -202,18 +194,14 @@ const Works = () => {
                       src={artwork.images[0]}
                       alt=""
                       className="w-full h-3/5 object-cover rounded"
-                      loading={artwork.id <= 8 ? "eager" : "lazy"}
-                      fetchPriority={artwork.id <= 4 ? "high" : "auto"}
-                      decoding="async"
+                      loading="lazy"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 0); }}
                     />
                     <img
                       src={artwork.images[1]}
                       alt=""
                       className="w-full h-2/5 object-cover rounded"
-                      loading={artwork.id <= 8 ? "eager" : "lazy"}
-                      fetchPriority={artwork.id <= 4 ? "high" : "auto"}
-                      decoding="async"
+                      loading="lazy"
                       onClick={(e) => { e.stopPropagation(); openLightbox(artwork, 1); }}
                     />
                   </div>
@@ -240,7 +228,7 @@ const Works = () => {
 <footer className="py-4 text-center border-t border-border bg-gray-100">
   <div className="text-xs text-muted-foreground flex flex-wrap justify-center gap-6">
     <a href="/geetika" className="hover:text-artist-red transition-colors underline">
-      Developed by Geetika Gehlot
+      © Built by Geetika Gehlot
     </a>
 
     <a
