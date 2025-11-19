@@ -125,6 +125,8 @@ const Works = () => {
                     className="w-full object-cover aspect-video"
                     muted
                     loop
+                    autoPlay
+                    playsInline
                     preload="auto"
                   />
                 )}

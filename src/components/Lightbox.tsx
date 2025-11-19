@@ -113,6 +113,9 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
                   src={images[currentImageIndex]}
                   controls
                   autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="max-h-[calc(100vh-8rem)] max-w-full object-contain"
                   preload="auto"
                 />
