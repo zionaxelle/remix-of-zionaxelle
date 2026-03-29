@@ -138,7 +138,7 @@ const Contact = () => {
 <footer className="py-4 text-center border-t border-border bg-gray-100">
   <div className="text-xs text-muted-foreground flex flex-wrap justify-center gap-6">
     <a href="/geetika" className="hover:text-artist-red transition-colors underline">
-      Developed by Geetika Gehlot
+      Copyright © 2026 Zion Axelle. All rights reserved. Developed by Geetika Gehlot
     </a>
 
     <a
